@@ -1,10 +1,10 @@
-import { Box, CircularProgress } from '@chakra-ui/react';
+import { Center, CircularProgress } from '@chakra-ui/react';
 
 const Loading = () => {
   return (
-    <Box w='100%' h='100%'>
+    <Center>
       <CircularProgress />
-    </Box>
+    </Center>
   );
 };
 

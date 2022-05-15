@@ -1,14 +1,16 @@
-import { Button, Input } from '@chakra-ui/react';
+import { Input } from '@chakra-ui/react';
 import MainLayout from '../../layouts/Main/MainLayout';
+import { UserTable } from './components/UserTable';
+import { UserActions } from './UserActions';
 
 export const UserManagement = () => {
   return (
     <MainLayout
       title="User Management"
       leftAction={<Input variant="outline" placeholder="Search" />}
-      rightAction={<Button>Right Action</Button>}
+      rightAction={<UserActions />}
     >
-      User Management
+      <UserTable />
     </MainLayout>
   );
 };

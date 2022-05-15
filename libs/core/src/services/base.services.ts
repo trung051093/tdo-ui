@@ -1,12 +1,15 @@
-import Axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
+import Axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { injectable } from 'inversify';
 
+@injectable()
 export abstract class BaseService {
-  async post<T, R extends AxiosResponse>(
+  async post<T, R>(
     path: string,
     data: T,
     config?: AxiosRequestConfig,
   ): Promise<R> {
-    return Axios.post(path, data, config);
+    const result = await Axios.post<T, AxiosResponse<R>>(path, data, config);
+    return result.data
   }
 
   async put<T, R>(
@@ -14,7 +17,8 @@ export abstract class BaseService {
     data: T,
     config?: AxiosRequestConfig,
   ): Promise<R> {
-    return Axios.put(path, data, config);
+    const result = await Axios.put<T, AxiosResponse<R>>(path, data, config);
+    return result.data;
   }
 
   async patch<T, R>(
@@ -22,11 +26,13 @@ export abstract class BaseService {
     data: T,
     config?: AxiosRequestConfig,
   ): Promise<R> {
-    return Axios.patch(path, data, config);
+    const result = await Axios.patch<T, AxiosResponse<R>>(path, data, config);
+    return result.data;
   }
 
   async get<T, R>(path: string, params?: T, config?: AxiosRequestConfig): Promise<R> {
-    return Axios.get(path, { ...config, params: params });
+    const result = await Axios.get(path, { ...config, params: params });
+    return result.data;
   }
 
   async delete<T, R>(
@@ -34,6 +40,7 @@ export abstract class BaseService {
     params?: T,
     config?: AxiosRequestConfig,
   ): Promise<R> {
-    return Axios.delete(path, { ...config, params });
+    const result = await Axios.delete(path, { ...config, params });
+    return result.data;
   }
 }

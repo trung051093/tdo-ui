@@ -5,7 +5,7 @@ export  const CookiesName = {
 
 export class CookieServices {
   static setCookie(key: string, value: string, expire: number) {
-    const cookie = `${key}=${value};expires=${new Date(expire * 1000).toUTCString()};path=/;Domain=${window.location.hostname};`;
+    const cookie = `${key}=${value};expires=${new Date(expire).toUTCString()};path=/;Domain=${window.location.hostname};`;
     document.cookie = cookie;
   }
 

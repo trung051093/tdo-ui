@@ -1,10 +1,20 @@
 import { BaseService } from '@tdo-ui/core/services'
+import { ApiPaths } from '../constants'
+import { LoginRequest, LoginResponse, RegisterRequest, RegisterResponse } from '../models'
+import { injectable } from "inversify";
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface AuthServices {
-
+export interface IAuthServices {
+    login: (params: LoginRequest) => Promise<LoginResponse>
+    register: (params: RegisterRequest) => Promise<RegisterResponse>
 }
 
-export class AuthServices extends BaseService {
+@injectable()
+export class AuthServices extends BaseService implements IAuthServices {
+    login(params: LoginRequest): Promise<LoginResponse> {
+        return super.post<LoginRequest, LoginResponse>(ApiPaths.auth.login, params)
+    }
+    register(params: RegisterRequest): Promise<RegisterResponse> {
+        return super.post<RegisterRequest, RegisterResponse>(ApiPaths.auth.register, params)
+    }
 
 }

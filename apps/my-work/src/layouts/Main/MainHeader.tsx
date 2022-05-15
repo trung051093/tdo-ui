@@ -15,6 +15,7 @@ import {
   MenuDivider,
 } from '@chakra-ui/react';
 import { FiMenu, FiBell, FiChevronDown } from 'react-icons/fi';
+import { useSignOut } from '../../hooks/useAuth';
 
 interface MainHeaderProps extends FlexProps {
   title?: string;
@@ -26,11 +27,16 @@ export const MainHeader = ({
   onOpenSizebar,
   ...rest
 }: MainHeaderProps) => {
+  const { handleSignout } = useSignOut();
+
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
       px={{ base: 4, md: 4 }}
       height="20"
+      pos="sticky"
+      top="0"
+      zIndex="1000"
       alignItems="center"
       bg={useColorModeValue('white', 'gray.900')}
       borderBottomWidth="1px"
@@ -102,7 +108,7 @@ export const MainHeader = ({
               <MenuItem>Settings</MenuItem>
               <MenuItem>Billing</MenuItem>
               <MenuDivider />
-              <MenuItem>Sign out</MenuItem>
+              <MenuItem onClick={handleSignout}>Sign out</MenuItem>
             </MenuList>
           </Menu>
         </Flex>

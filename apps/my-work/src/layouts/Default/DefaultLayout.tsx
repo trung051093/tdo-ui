@@ -1,24 +1,20 @@
 import React from 'react';
-import { Box } from '@chakra-ui/react';
-import { PageContent } from '@tdo-ui/core/lib/Page';
+import { Flex, useColorModeValue } from '@chakra-ui/react';
 
 export interface DefaultLayoutProps {
-  leftAction?: React.ReactNode;
-  rightAction?: React.ReactNode;
   children: React.ReactNode;
 }
 
-export const DefaultLayout = ({
-  leftAction,
-  rightAction,
-  children,
-}: DefaultLayoutProps) => {
+export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   return (
-    <Box>
-      <PageContent leftAction={leftAction} rightAction={rightAction}>
-        {children}
-      </PageContent>
-    </Box>
+    <Flex
+      minH={'100vh'}
+      align={'center'}
+      justify={'center'}
+      bg={useColorModeValue('gray.50', 'gray.800')}
+    >
+      {children}
+    </Flex>
   );
 };
 

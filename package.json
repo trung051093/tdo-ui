@@ -18,6 +18,10 @@
     "core-js": "^3.6.5",
     "formik": "^2.2.9",
     "framer-motion": "^6",
+    "http-proxy-middleware": "^2.0.6",
+    "inversify": "^6.0.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.3",
     "query-string": "^7.1.1",
     "react": "18.1.0",
     "react-base-table": "^1.13.1",
@@ -26,6 +30,7 @@
     "react-query": "^3.39.0",
     "react-router-dom": "6.3.0",
     "react-use": "^17.3.2",
+    "reflect-metadata": "^0.1.13",
     "regenerator-runtime": "0.13.7",
     "tslib": "^2.3.0",
     "yup": "^0.32.11"
