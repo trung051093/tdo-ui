@@ -3,6 +3,8 @@
   "version": 2,
   "projects": {
     "core": "libs/core",
+    "my-wedding": "apps/my-wedding",
+    "my-wedding-e2e": "apps/my-wedding-e2e",
     "my-work": "apps/my-work",
     "my-work-e2e": "apps/my-work-e2e"
   }

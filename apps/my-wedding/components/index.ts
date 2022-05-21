@@ -1,0 +1,5 @@
+export * from './Home'
+export * from './Menu'
+export * from './Photo'
+export * from './WeddingCard'
+export * from './ThankYou'
