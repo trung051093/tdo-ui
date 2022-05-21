@@ -5,7 +5,7 @@ import { Image } from './Image';
 export const WeddingCard = () => {
   return (
     <Flex h="100vh" pos="relative">
-      <Image w="100vw" h="100vh" src={bgImg} />
+      <Image container={{ w: '100vw', h: '100vh' }} src={bgImg} />
       <Center
         w="100%"
         h="100%"

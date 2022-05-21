@@ -5,7 +5,11 @@ import { Image } from './Image';
 export const ThankYou = () => {
   return (
     <Flex pos="relative">
-      <Image layout="responsive" w="100vw" h="100vh" src={bgImg} />
+      <Image
+        container={{ w: '100vw', h: '100vh' }}
+        layout="responsive"
+        src={bgImg}
+      />
       <Center
         w="100%"
         h="100%"
@@ -18,9 +22,7 @@ export const ThankYou = () => {
             Thank you
           </Heading>
           <VStack spacing="2">
-            <Text textAlign="center">
-                FOR SHARING OUR SPECIAL DAY
-            </Text>
+            <Text textAlign="center">FOR SHARING OUR SPECIAL DAY</Text>
             <Text textAlign="center">10 . 07 . 2022</Text>
             <Text fontWeight="semibold">TRUNG & TRÂM</Text>
           </VStack>
