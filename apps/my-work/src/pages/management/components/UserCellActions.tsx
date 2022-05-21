@@ -1,5 +1,5 @@
 import { HStack, Button } from '@chakra-ui/react';
-import { User } from '../../../models';
+import { User } from '@my-work/models';
 import { FiEdit, FiTrash2 } from 'react-icons/fi';
 
 interface UserCellActionsProps {

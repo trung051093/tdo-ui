@@ -1,6 +1,6 @@
 import React from 'react';
-import container from '../serivces/inversify.config'
-import { ServiceTypes } from '../serivces/types';
+import container from '@my-work/serivces/inversify.config'
+import { ServiceTypes } from '@my-work/serivces/types';
 import { interfaces, Container } from 'inversify'
 
 export const ContainerProvider = React.createContext<interfaces.Container | Container>(new Container())

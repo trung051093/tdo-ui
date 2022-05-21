@@ -1,7 +1,7 @@
 import React from 'react'
 import { useQuery, useMutation, QueryObserverOptions } from 'react-query'
-import { CreateUserRequest, SearchUserRequest, UpdateUserRequest, UserId } from '../models'
-import { IUserServices } from '../serivces'
+import { CreateUserRequest, SearchUserRequest, UpdateUserRequest, UserId } from '@my-work/models'
+import { IUserServices } from '@my-work/serivces'
 import { useContainer, ServiceTypes } from './useContainer'
 import { useToast } from '@chakra-ui/react'
 

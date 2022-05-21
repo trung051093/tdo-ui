@@ -7,12 +7,12 @@ import {
   useColorModeValue,
   Link,
 } from '@chakra-ui/react';
-import { DefaultLayout } from '../../layouts/Default';
+import { DefaultLayout } from '@my-work/layouts/Default';
 import { FormikProvider, useFormik } from 'formik';
 import { FormInput, FormPassword } from '@tdo-ui/core/lib/FormControl';
-import { ROUTES } from '../../constants';
+import { ROUTES } from '@my-work/constants';
 import * as yup from 'yup';
-import { useAuthLogin } from '../../hooks';
+import { useAuthLogin } from '@my-work/hooks';
 
 const validationSchema = yup.object({
   email: yup.string().email('Invalid email address').required('Required'),

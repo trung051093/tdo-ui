@@ -1,11 +1,11 @@
 import { useMutation, useQueryClient } from 'react-query'
-import { LoginRequest, RegisterRequest } from '../models'
-import { IAuthServices } from '../serivces'
+import { LoginRequest, RegisterRequest } from '@my-work/models'
+import { IAuthServices } from '@my-work/serivces'
 import { useContainer, ServiceTypes } from './useContainer'
 import { useToast } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import { CookieServices, CookiesName } from '@tdo-ui/core'
-import { ROUTES } from '../constants'
+import { ROUTES } from '@my-work/constants'
 
 export const QUERY_KEYS = {
     auth: 'auth'

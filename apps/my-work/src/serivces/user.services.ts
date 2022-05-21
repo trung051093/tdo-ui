@@ -1,6 +1,6 @@
 import { BaseService } from '@tdo-ui/core/services'
-import { ApiPaths } from '../constants'
-import { CreateUserRequest, CreateUserResponse, DeleteUserResponse, GetUserResponse, SearchUserRequest, SearchUserResponse, UpdateUserRequest, UpdateUserResponse, UserId } from '../models'
+import { ApiPaths } from '@my-work/constants'
+import { CreateUserRequest, CreateUserResponse, DeleteUserResponse, GetUserResponse, SearchUserRequest, SearchUserResponse, UpdateUserRequest, UpdateUserResponse, UserId } from '@my-work/models'
 import { injectable } from "inversify";
 
 export interface IUserServices {

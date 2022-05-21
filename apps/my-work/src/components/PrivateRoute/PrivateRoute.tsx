@@ -1,6 +1,6 @@
 import { Navigate, useLocation } from "react-router-dom";
 import { CookiesName, CookieServices } from '@tdo-ui/core';
-import { ROUTES } from '../../constants/routes'
+import { ROUTES } from '@my-work/constants/routes'
 
 interface PrivateRouteProps {
   children: JSX.Element;

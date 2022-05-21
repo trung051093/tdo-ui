@@ -15,8 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@my-work/*": ["apps/my-work/src/*"],
       "@tdo-ui/core": ["libs/core/src/index.ts"],
-      "@tdo-ui/core/*": ["libs/core/src/*"]
+      "@tdo-ui/core/*": ["libs/core/src/*"],
     }
   },
   "exclude": ["node_modules", "tmp"]

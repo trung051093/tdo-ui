@@ -1,8 +1,8 @@
 import React from 'react';
-import { useSearchUser } from '../../../hooks';
+import { useSearchUser } from '@my-work/hooks';
 import BaseTable, { AutoResizer, Column, ColumnShape } from 'react-base-table';
 import 'react-base-table/styles.css';
-import { User } from '../../../models';
+import { User } from '@my-work/models';
 import { Box } from '@chakra-ui/react';
 import { Pagination } from '@tdo-ui/core/lib/Pagination';
 import './UserTable.css';

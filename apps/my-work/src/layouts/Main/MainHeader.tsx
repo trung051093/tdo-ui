@@ -15,7 +15,7 @@ import {
   MenuDivider,
 } from '@chakra-ui/react';
 import { FiMenu, FiBell, FiChevronDown } from 'react-icons/fi';
-import { useSignOut } from '../../hooks/useAuth';
+import { useSignOut } from '@my-work/hooks/useAuth';
 
 interface MainHeaderProps extends FlexProps {
   title?: string;

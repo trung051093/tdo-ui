@@ -8,12 +8,12 @@ import {
   useColorModeValue,
   Link,
 } from '@chakra-ui/react';
-import { DefaultLayout } from '../../layouts/Default';
+import { DefaultLayout } from '@my-work/layouts/Default';
 import { FormikProvider, useFormik } from 'formik';
 import { FormInput, FormPassword } from '@tdo-ui/core/lib/FormControl';
-import { ROUTES } from '../../constants';
+import { ROUTES } from '@my-work/constants';
 import * as yup from 'yup';
-import { useAuthRegister } from '../../hooks/useAuth';
+import { useAuthRegister } from '@my-work/hooks/useAuth';
 
 const validationSchema = yup.object({
   firstName: yup

@@ -11,7 +11,7 @@ import {
 import { SidebarContent, LinkItem } from '@tdo-ui/core/lib/Sidebar';
 import { PageContent } from '@tdo-ui/core/lib/Page';
 import { MainHeader } from './MainHeader';
-import { Logo } from '../../components/Logo/Logo';
+import { Logo } from '@my-work/components/Logo/Logo';
 
 const LinkItems: LinkItem[] = [
   { name: 'Home', icon: FiHome, href: '#' },
