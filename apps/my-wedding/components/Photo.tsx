@@ -27,43 +27,43 @@ const images = [
     colSpan: 1,
   },
   {
-    src: '/wedding/-images16.jpg',
+    src: '/wedding-images/16.jpg',
     rowSpan: 1,
     colSpan: 2,
   },
   {
-    src: '/wedding/-images26.jpg',
+    src: '/wedding-images/26.jpg',
     rowSpan: 2,
     colSpan: 1,
   },
   {
-    src: '/wedding/-images18.jpg',
+    src: '/wedding-images/18.jpg',
     rowSpan: 1,
     colSpan: 1,
   },
   {
-    src: '/wedding/-images23.jpg',
+    src: '/wedding-images/23.jpg',
     rowSpan: 1,
     colSpan: 1,
   },
 
   {
-    src: '/wedding/-images45.jpg',
+    src: '/wedding-images/45.jpg',
     rowSpan: 1,
     colSpan: 1,
   },
   {
-    src: '/wedding/-images44.jpg',
+    src: '/wedding-images/44.jpg',
     rowSpan: 1,
     colSpan: 1,
   },
   {
-    src: '/wedding/-images37.jpg',
+    src: '/wedding-images/37.jpg',
     rowSpan: 2,
     colSpan: 1,
   },
   {
-    src: '/wedding/-images36.jpg',
+    src: '/wedding-images/36.jpg',
     rowSpan: 1,
     colSpan: 2,
   },
@@ -83,88 +83,88 @@ const images = [
     src: '/wedding-images/8.jpg',
   },
   {
-    src: '/wedding/-images10.jpg',
+    src: '/wedding-images/10.jpg',
   },
   {
-    src: '/wedding/-images11.jpg',
+    src: '/wedding-images/11.jpg',
   },
   {
-    src: '/wedding/-images12.jpg',
+    src: '/wedding-images/12.jpg',
   },
   {
-    src: '/wedding/-images13.jpg',
+    src: '/wedding-images/13.jpg',
   },
   {
-    src: '/wedding/-images14.jpg',
+    src: '/wedding-images/14.jpg',
   },
   {
-    src: '/wedding/-images15.jpg',
+    src: '/wedding-images/15.jpg',
   },
   {
-    src: '/wedding/-images17.jpg',
+    src: '/wedding-images/17.jpg',
   },
   {
-    src: '/wedding/-images19.jpg',
+    src: '/wedding-images/19.jpg',
   },
   {
-    src: '/wedding/-images20.jpg',
+    src: '/wedding-images/20.jpg',
   },
   {
-    src: '/wedding/-images21.jpg',
+    src: '/wedding-images/21.jpg',
   },
   {
-    src: '/wedding/-images22.jpg',
+    src: '/wedding-images/22.jpg',
   },
   {
-    src: '/wedding/-images24.jpg',
+    src: '/wedding-images/24.jpg',
   },
   {
-    src: '/wedding/-images25.jpg',
+    src: '/wedding-images/25.jpg',
   },
   {
-    src: '/wedding/-images27.jpg',
+    src: '/wedding-images/27.jpg',
   },
   {
-    src: '/wedding/-images28.jpg',
+    src: '/wedding-images/28.jpg',
   },
   {
-    src: '/wedding/-images29.jpg',
+    src: '/wedding-images/29.jpg',
   },
   {
-    src: '/wedding/-images30.jpg',
+    src: '/wedding-images/30.jpg',
   },
   {
-    src: '/wedding/-images31.jpg',
+    src: '/wedding-images/31.jpg',
   },
   {
-    src: '/wedding/-images32.jpg',
+    src: '/wedding-images/32.jpg',
   },
   {
-    src: '/wedding/-images33.jpg',
+    src: '/wedding-images/33.jpg',
   },
   {
-    src: '/wedding/-images34.jpg',
+    src: '/wedding-images/34.jpg',
   },
   {
-    src: '/wedding/-images35.jpg',
+    src: '/wedding-images/35.jpg',
   },
   {
-    src: '/wedding/-images38.jpg',
+    src: '/wedding-images/38.jpg',
   },
   {
-    src: '/wedding/-images39.jpg',
+    src: '/wedding-images/39.jpg',
   },
   {
-    src: '/wedding/-images40.jpg',
+    src: '/wedding-images/40.jpg',
   },
   {
-    src: '/wedding/-images41.jpg',
+    src: '/wedding-images/41.jpg',
   },
   {
-    src: '/wedding/-images42.jpg',
+    src: '/wedding-images/42.jpg',
   },
   {
-    src: '/wedding/-images43.jpg',
+    src: '/wedding-images/43.jpg',
   },
 ];
 
