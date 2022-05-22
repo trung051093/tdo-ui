@@ -7,170 +7,170 @@ import 'react-image-lightbox/style.css'; // This only needs to be imported once 
 
 const images = [
   {
-    src: '/wedding-images/1.jpg',
+    src: '/wedding/1-min.jpg',
     rowSpan: 2,
     colSpan: 1,
   },
   {
-    src: '/wedding-images/2.jpg',
+    src: '/wedding/2-min.jpg',
     rowSpan: 1,
     colSpan: 2,
   },
   {
-    src: '/wedding-images/9.jpg',
+    src: '/wedding/9-min.jpg',
     rowSpan: 1,
     colSpan: 1,
   },
   {
-    src: '/wedding-images/4.jpg',
+    src: '/wedding/4-min.jpg',
     rowSpan: 1,
     colSpan: 1,
   },
   {
-    src: '/wedding-images/16.jpg',
+    src: '/wedding/16-min.jpg',
     rowSpan: 1,
     colSpan: 2,
   },
   {
-    src: '/wedding-images/26.jpg',
+    src: '/wedding/26-min.jpg',
     rowSpan: 2,
     colSpan: 1,
   },
   {
-    src: '/wedding-images/18.jpg',
+    src: '/wedding/18-min.jpg',
     rowSpan: 1,
     colSpan: 1,
   },
   {
-    src: '/wedding-images/23.jpg',
+    src: '/wedding/23-min.jpg',
     rowSpan: 1,
     colSpan: 1,
   },
 
   {
-    src: '/wedding-images/45.jpg',
+    src: '/wedding/45-min.jpg',
     rowSpan: 1,
     colSpan: 1,
   },
   {
-    src: '/wedding-images/44.jpg',
+    src: '/wedding/44-min.jpg',
     rowSpan: 1,
     colSpan: 1,
   },
   {
-    src: '/wedding-images/37.jpg',
+    src: '/wedding/37-min.jpg',
     rowSpan: 2,
     colSpan: 1,
   },
   {
-    src: '/wedding-images/36.jpg',
+    src: '/wedding/36-min.jpg',
     rowSpan: 1,
     colSpan: 2,
   },
   {
-    src: '/wedding-images/3.jpg',
+    src: '/wedding/3-min.jpg',
   },
   {
-    src: '/wedding-images/5.jpg',
+    src: '/wedding/5-min.jpg',
   },
   {
-    src: '/wedding-images/6.jpg',
+    src: '/wedding/6-min.jpg',
   },
   {
-    src: '/wedding-images/7.jpg',
+    src: '/wedding/7-min.jpg',
   },
   {
-    src: '/wedding-images/8.jpg',
+    src: '/wedding/8-min.jpg',
   },
   {
-    src: '/wedding-images/10.jpg',
+    src: '/wedding/10-min.jpg',
   },
   {
-    src: '/wedding-images/11.jpg',
+    src: '/wedding/11-min.jpg',
   },
   {
-    src: '/wedding-images/12.jpg',
+    src: '/wedding/12-min.jpg',
   },
   {
-    src: '/wedding-images/13.jpg',
+    src: '/wedding/13-min.jpg',
   },
   {
-    src: '/wedding-images/14.jpg',
+    src: '/wedding/14-min.jpg',
   },
   {
-    src: '/wedding-images/15.jpg',
+    src: '/wedding/15-min.jpg',
   },
   {
-    src: '/wedding-images/17.jpg',
+    src: '/wedding/17-min.jpg',
   },
   {
-    src: '/wedding-images/19.jpg',
+    src: '/wedding/19-min.jpg',
   },
   {
-    src: '/wedding-images/20.jpg',
+    src: '/wedding/20-min.jpg',
   },
   {
-    src: '/wedding-images/21.jpg',
+    src: '/wedding/21-min.jpg',
   },
   {
-    src: '/wedding-images/22.jpg',
+    src: '/wedding/22-min.jpg',
   },
   {
-    src: '/wedding-images/24.jpg',
+    src: '/wedding/24-min.jpg',
   },
   {
-    src: '/wedding-images/25.jpg',
+    src: '/wedding/25-min.jpg',
   },
   {
-    src: '/wedding-images/27.jpg',
+    src: '/wedding/27-min.jpg',
   },
   {
-    src: '/wedding-images/28.jpg',
+    src: '/wedding/28-min.jpg',
   },
   {
-    src: '/wedding-images/29.jpg',
+    src: '/wedding/29-min.jpg',
   },
   {
-    src: '/wedding-images/30.jpg',
+    src: '/wedding/30-min.jpg',
   },
   {
-    src: '/wedding-images/31.jpg',
+    src: '/wedding/31-min.jpg',
   },
   {
-    src: '/wedding-images/32.jpg',
+    src: '/wedding/32-min.jpg',
   },
   {
-    src: '/wedding-images/33.jpg',
+    src: '/wedding/33-min.jpg',
   },
   {
-    src: '/wedding-images/34.jpg',
+    src: '/wedding/34-min.jpg',
   },
   {
-    src: '/wedding-images/35.jpg',
+    src: '/wedding/35-min.jpg',
   },
   {
-    src: '/wedding-images/38.jpg',
+    src: '/wedding/38-min.jpg',
   },
   {
-    src: '/wedding-images/39.jpg',
+    src: '/wedding/39-min.jpg',
   },
   {
-    src: '/wedding-images/40.jpg',
+    src: '/wedding/40-min.jpg',
   },
   {
-    src: '/wedding-images/41.jpg',
+    src: '/wedding/41-min.jpg',
   },
   {
-    src: '/wedding-images/42.jpg',
+    src: '/wedding/42-min.jpg',
   },
   {
-    src: '/wedding-images/43.jpg',
+    src: '/wedding/43-min.jpg',
   },
 ];
 
 const getNextImageWithIndex = (index) => {
   const imgName = images[index].src;
-  return `/_next/image?url=${imgName}&w=828&q=75`;
+  return `/_next/image?url=${decodeURIComponent(imgName)}&w=1080&q=80`;
 };
 
 export const Photo = () => {

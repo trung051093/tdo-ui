@@ -17,10 +17,10 @@ export function Index() {
         <title>Trung & Trâm!</title>
         <meta property="og:title" content="Trung & Trâm Wedding" />
         <meta property="og:description" content="In dreams and in love there are no impossibilities." />
-        <meta property="og:image" content="/_next/image?url=%2Fwedding-images%2F26.jpg&w=828&q=75" />
+        <meta property="og:image" content="/_next/image?url=%2Fwedding-images%2F26.jpg&w=1200" />
         <meta property="twitter:title" content="Trung & Trâm Wedding" />
         <meta property="twitter:description" content="In dreams and in love there are no impossibilities." />
-        <meta property="twitter:image" content="/_next/image?url=%2Fwedding-images%2F26.jpg&w=828&q=75" />
+        <meta property="twitter:image" content="/_next/image?url=%2Fwedding-images%2F26.jpg&w=1200" />
       </Head>
       <Section id={MENU.Home}>
         <Home />
