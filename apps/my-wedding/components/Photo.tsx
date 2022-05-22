@@ -7,62 +7,62 @@ import 'react-image-lightbox/style.css'; // This only needs to be imported once 
 
 const images = [
   {
-    src: '/static/1.jpg',
+    src: '/wedding-images/1.jpg',
     rowSpan: 2,
     colSpan: 1,
   },
   {
-    src: '/static/2.jpg',
+    src: '/wedding-images/2.jpg',
     rowSpan: 1,
     colSpan: 2,
   },
   {
-    src: '/static/9.jpg',
+    src: '/wedding-images/9.jpg',
     rowSpan: 1,
     colSpan: 1,
   },
   {
-    src: '/static/4.jpg',
+    src: '/wedding-images/4.jpg',
     rowSpan: 1,
     colSpan: 1,
   },
   {
-    src: '/static/16.jpg',
+    src: '/wedding-images/16.jpg',
     rowSpan: 1,
     colSpan: 2,
   },
   {
-    src: '/static/26.jpg',
+    src: '/wedding-images/26.jpg',
     rowSpan: 2,
     colSpan: 1,
   },
   {
-    src: '/static/18.jpg',
+    src: '/wedding-images/18.jpg',
     rowSpan: 1,
     colSpan: 1,
   },
   {
-    src: '/static/23.jpg',
+    src: '/wedding-images/23.jpg',
     rowSpan: 1,
     colSpan: 1,
   },
   {
-    src: '/static/45.jpg',
+    src: '/wedding-images/45.jpg',
     rowSpan: 1,
     colSpan: 1,
   },
   {
-    src: '/static/44.jpg',
+    src: '/wedding-images/44.jpg',
     rowSpan: 1,
     colSpan: 1,
   },
   {
-    src: '/static/37.jpg',
+    src: '/wedding-images/37.jpg',
     rowSpan: 2,
     colSpan: 1,
   },
   {
-    src: '/static/36.jpg',
+    src: '/wedding-images/36.jpg',
     rowSpan: 1,
     colSpan: 2,
   },
