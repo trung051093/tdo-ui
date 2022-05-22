@@ -31,7 +31,7 @@ export const ScrollWrapper = ({
     if (nextRef.current) {
       animate(
         nextRef.current,
-        { bottom: '11%' },
+        { bottom: '9%' },
         { duration: 1, repeat: Infinity }
       );
     }
@@ -69,7 +69,7 @@ export const ScrollWrapper = ({
         </Center>
       )}
       {showNextBtn && nextId && (
-        <Center ref={nextRef} width="100vw" pos="absolute" bottom="10%">
+        <Center ref={nextRef} width="100vw" pos="absolute" bottom="8%">
           <Button
             variant="ghost"
             leftIcon={<FiChevronsDown />}

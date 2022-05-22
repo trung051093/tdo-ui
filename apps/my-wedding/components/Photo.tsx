@@ -7,62 +7,62 @@ import 'react-image-lightbox/style.css'; // This only needs to be imported once 
 
 const images = [
   {
-    src: '/wedding-images/1.jpg',
+    src: '/wedding/1-min.jpg',
     rowSpan: 2,
     colSpan: 1,
   },
   {
-    src: '/wedding-images/2.jpg',
+    src: '/wedding/2-min.jpg',
     rowSpan: 1,
     colSpan: 2,
   },
   {
-    src: '/wedding-images/9.jpg',
+    src: '/wedding/9-min.jpg',
     rowSpan: 1,
     colSpan: 1,
   },
   {
-    src: '/wedding-images/4.jpg',
+    src: '/wedding/4-min.jpg',
     rowSpan: 1,
     colSpan: 1,
   },
   {
-    src: '/wedding-images/16.jpg',
+    src: '/wedding/16-min.jpg',
     rowSpan: 1,
     colSpan: 2,
   },
   {
-    src: '/wedding-images/26.jpg',
+    src: '/wedding/26-min.jpg',
     rowSpan: 2,
     colSpan: 1,
   },
   {
-    src: '/wedding-images/18.jpg',
+    src: '/wedding/18-min.jpg',
     rowSpan: 1,
     colSpan: 1,
   },
   {
-    src: '/wedding-images/23.jpg',
+    src: '/wedding/23-min.jpg',
     rowSpan: 1,
     colSpan: 1,
   },
   {
-    src: '/wedding-images/45.jpg',
+    src: '/wedding/45-min.jpg',
     rowSpan: 1,
     colSpan: 1,
   },
   {
-    src: '/wedding-images/44.jpg',
+    src: '/wedding/44-min.jpg',
     rowSpan: 1,
     colSpan: 1,
   },
   {
-    src: '/wedding-images/37.jpg',
+    src: '/wedding/37-min.jpg',
     rowSpan: 2,
     colSpan: 1,
   },
   {
-    src: '/wedding-images/36.jpg',
+    src: '/wedding/36-min.jpg',
     rowSpan: 1,
     colSpan: 2,
   },
@@ -102,11 +102,7 @@ export const Photo = () => {
                   toggleLightbox(true);
                 }}
               >
-                <Image
-                  lazy
-                  container={{ w: '100%', h: '100%' }}
-                  src={img.src}
-                />
+                <Image container={{ w: '100%', h: '100%' }} src={img.src} />
               </GridItem>
             ))}
           </Grid>
