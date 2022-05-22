@@ -68,6 +68,11 @@ const images = [
   },
 ];
 
+const getNextImageWithIndex = (index) => {
+  const imgName = images[index].src;
+  return `/_next/image?url=${imgName}&w=828&q=75`;
+};
+
 export const Photo = () => {
   const [openLightbox, toggleLightbox] = useToggle(false);
   const [photoIndex, setPhotoIndex] = React.useState(0);
@@ -93,11 +98,15 @@ export const Photo = () => {
                 rowSpan={img.rowSpan}
                 colSpan={img.colSpan}
                 onClick={() => {
-                    setPhotoIndex(index);
-                    toggleLightbox(true);
+                  setPhotoIndex(index);
+                  toggleLightbox(true);
                 }}
               >
-                <Image container={{ w: '100%', h: '100%' }} src={img.src} />
+                <Image
+                  lazy
+                  container={{ w: '100%', h: '100%' }}
+                  src={img.src}
+                />
               </GridItem>
             ))}
           </Grid>
@@ -105,11 +114,11 @@ export const Photo = () => {
 
         {openLightbox && (
           <Lightbox
-            mainSrc={images[photoIndex].src}
-            nextSrc={images[(photoIndex + 1) % images.length].src}
-            prevSrc={
-              images[(photoIndex + images.length - 1) % images.length].src
-            }
+            mainSrc={getNextImageWithIndex(photoIndex)}
+            nextSrc={getNextImageWithIndex((photoIndex + 1) % images.length)}
+            prevSrc={getNextImageWithIndex(
+              (photoIndex + images.length - 1) % images.length
+            )}
             onCloseRequest={() => toggleLightbox(false)}
             onMovePrevRequest={() =>
               setPhotoIndex(
