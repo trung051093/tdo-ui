@@ -12,7 +12,6 @@ import { Section } from 'react-scroll-section';
 export function Index() {
   return (
     <Container pos="relative" maxW="100%" maxH="100%" p="0">
-      <Menu />
       <Section id={MENU.Home}>
         <Home />
       </Section>

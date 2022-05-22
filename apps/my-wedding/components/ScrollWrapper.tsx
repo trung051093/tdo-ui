@@ -1,0 +1,84 @@
+import React from 'react';
+import { Center, Button } from '@chakra-ui/react';
+import VisibilitySensor from 'react-visibility-sensor';
+import { FiChevronsDown, FiChevronsUp } from 'react-icons/fi';
+import { useScrollSection } from 'react-scroll-section';
+import { animate, stagger } from 'motion';
+
+interface ScrollWrapperProps {
+  nextId?: string;
+  nextText?: string;
+  prevId?: string;
+  prevText?: string;
+  children?: React.ReactNode;
+}
+
+export const ScrollWrapper = ({
+  nextId,
+  nextText = 'Next',
+  prevId,
+  prevText = 'Prev',
+  children,
+}: ScrollWrapperProps) => {
+  const [showNextBtn, setShowNextBtn] = React.useState<boolean>(false);
+  const [showPrevBtn, setShowPrevBtn] = React.useState<boolean>(false);
+  const nextSection = useScrollSection(nextId);
+  const prevSection = useScrollSection(prevId);
+  const prevRef = React.useRef();
+  const nextRef = React.useRef();
+
+  React.useEffect(() => {
+    if (nextRef.current) {
+      animate(
+        nextRef.current,
+        { bottom: '6%' },
+        { duration: 1, repeat: Infinity }
+      );
+    }
+  }, [showNextBtn]);
+
+  React.useEffect(() => {
+    if (prevRef.current) {
+      animate(
+        prevRef.current,
+        { top: '4%' },
+        { duration: 1, repeat: Infinity }
+      );
+    }
+  }, [showPrevBtn]);
+
+  const onElementVisibility = (isVisible: boolean) => {
+    setShowNextBtn(isVisible);
+    setShowPrevBtn(isVisible);
+  };
+
+  return (
+    <>
+      <VisibilitySensor onChange={onElementVisibility}>
+        {children}
+      </VisibilitySensor>
+      {showPrevBtn && prevId && (
+        <Center ref={prevRef} width="100vw" pos="absolute" top="5%">
+          <Button
+            variant="ghost"
+            leftIcon={<FiChevronsUp />}
+            onClick={prevSection.onClick}
+          >
+            {prevText}
+          </Button>
+        </Center>
+      )}
+      {showNextBtn && nextId && (
+        <Center ref={nextRef} width="100vw" pos="absolute" bottom="5%">
+          <Button
+            variant="ghost"
+            leftIcon={<FiChevronsDown />}
+            onClick={nextSection.onClick}
+          >
+            {nextText}
+          </Button>
+        </Center>
+      )}
+    </>
+  );
+};
