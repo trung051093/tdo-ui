@@ -170,7 +170,7 @@ const images = [
 
 const getNextImageWithIndex = (index) => {
   const imgName = images[index].src;
-  return `/_next/image?url=${decodeURIComponent(imgName)}&w=1080&q=80`;
+  return `/_next/image?url=${encodeURIComponent(imgName)}&w=1080&q=80`;
 };
 
 export const Photo = () => {
