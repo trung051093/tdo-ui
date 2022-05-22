@@ -48,9 +48,8 @@ export const WeddingCard = () => {
             <VStack spacing="2">
               <Text textAlign="center">
                 Please share in our celebration by joining us for dinner
-                reception
+                reception at five o'clock in the evening on
               </Text>
-              <Text textAlign="center">at five o'clock in the evening on</Text>
               <Text fontWeight="semibold">Sunday, July 10th, 2022</Text>
             </VStack>
             <VStack marginTop="6">
