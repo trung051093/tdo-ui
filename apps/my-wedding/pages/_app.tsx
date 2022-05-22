@@ -9,9 +9,6 @@ function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
       <ScrollingProvider>
-        <Head>
-          <title>Welcome to my-wedding!</title>
-        </Head>
         <main className="app">
           <Component {...pageProps} />
         </main>

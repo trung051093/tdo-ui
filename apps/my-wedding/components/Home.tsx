@@ -20,6 +20,14 @@ export const Home = () => {
               Trung & Trâm
             </Heading>
             <Text>July 10, 2022</Text>
+            <Heading
+              fontSize="2xl"
+              textAlign="center"
+              fontWeight="normal"
+              fontStyle="italic"
+            >
+              In dreams and in love there are no impossibilities.
+            </Heading>
           </VStack>
         </Center>
       </ScrollWrapper>
