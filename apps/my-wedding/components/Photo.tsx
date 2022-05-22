@@ -1,4 +1,4 @@
-import { Flex, Center, Grid, GridItem } from '@chakra-ui/react';
+import { Flex, Center, Grid, GridItem, Button } from '@chakra-ui/react';
 import { Image } from './Image';
 import { useToggle } from 'react-use';
 import Lightbox from 'react-image-lightbox';
@@ -46,6 +46,7 @@ const images = [
     rowSpan: 1,
     colSpan: 1,
   },
+
   {
     src: '/wedding/45-min.jpg',
     rowSpan: 1,
@@ -66,6 +67,105 @@ const images = [
     rowSpan: 1,
     colSpan: 2,
   },
+  {
+    src: '/wedding/3-min.jpg',
+  },
+  {
+    src: '/wedding/5-min.jpg',
+  },
+  {
+    src: '/wedding/6-min.jpg',
+  },
+  {
+    src: '/wedding/7-min.jpg',
+  },
+  {
+    src: '/wedding/8-min.jpg',
+  },
+  {
+    src: '/wedding/10-min.jpg',
+  },
+  {
+    src: '/wedding/11-min.jpg',
+  },
+  {
+    src: '/wedding/12-min.jpg',
+  },
+  {
+    src: '/wedding/13-min.jpg',
+  },
+  {
+    src: '/wedding/14-min.jpg',
+  },
+  {
+    src: '/wedding/15-min.jpg',
+  },
+  {
+    src: '/wedding/17-min.jpg',
+  },
+  {
+    src: '/wedding/19-min.jpg',
+  },
+  {
+    src: '/wedding/20-min.jpg',
+  },
+  {
+    src: '/wedding/21-min.jpg',
+  },
+  {
+    src: '/wedding/22-min.jpg',
+  },
+  {
+    src: '/wedding/24-min.jpg',
+  },
+  {
+    src: '/wedding/25-min.jpg',
+  },
+  {
+    src: '/wedding/27-min.jpg',
+  },
+  {
+    src: '/wedding/28-min.jpg',
+  },
+  {
+    src: '/wedding/29-min.jpg',
+  },
+  {
+    src: '/wedding/30-min.jpg',
+  },
+  {
+    src: '/wedding/31-min.jpg',
+  },
+  {
+    src: '/wedding/32-min.jpg',
+  },
+  {
+    src: '/wedding/33-min.jpg',
+  },
+  {
+    src: '/wedding/34-min.jpg',
+  },
+  {
+    src: '/wedding/35-min.jpg',
+  },
+  {
+    src: '/wedding/38-min.jpg',
+  },
+  {
+    src: '/wedding/39-min.jpg',
+  },
+  {
+    src: '/wedding/40-min.jpg',
+  },
+  {
+    src: '/wedding/41-min.jpg',
+  },
+  {
+    src: '/wedding/42-min.jpg',
+  },
+  {
+    src: '/wedding/43-min.jpg',
+  },
 ];
 
 const getNextImageWithIndex = (index) => {
@@ -77,9 +177,14 @@ export const Photo = () => {
   const [openLightbox, toggleLightbox] = useToggle(false);
   const [photoIndex, setPhotoIndex] = React.useState(0);
 
+  const viewAll = () => {
+    setPhotoIndex(0);
+    toggleLightbox(true);
+  };
+
   return (
     <>
-      <Flex minH="100vh">
+      <Flex minH="100vh" pos="relative">
         <Center width="100%">
           <Grid
             w="100%"
@@ -92,19 +197,21 @@ export const Photo = () => {
               base: 'repeat(3, 1fr)',
             }}
           >
-            {images.map((img, index) => (
-              <GridItem
-                key={index}
-                rowSpan={img.rowSpan}
-                colSpan={img.colSpan}
-                onClick={() => {
-                  setPhotoIndex(index);
-                  toggleLightbox(true);
-                }}
-              >
-                <Image container={{ w: '100%', h: '100%' }} src={img.src} />
-              </GridItem>
-            ))}
+            {images
+              .filter((img) => Boolean(img.colSpan) || Boolean(img.rowSpan))
+              .map((img, index) => (
+                <GridItem
+                  key={index}
+                  rowSpan={img.rowSpan}
+                  colSpan={img.colSpan}
+                  onClick={() => {
+                    setPhotoIndex(index);
+                    toggleLightbox(true);
+                  }}
+                >
+                  <Image container={{ w: '100%', h: '100%' }} src={img.src} />
+                </GridItem>
+              ))}
           </Grid>
         </Center>
 
@@ -126,6 +233,11 @@ export const Photo = () => {
             }
           />
         )}
+        <Center width="100%" pos="absolute" bottom="9%">
+          <Button boxShadow="md" onClick={viewAll}>
+            View all photo
+          </Button>
+        </Center>
       </Flex>
     </>
   );
