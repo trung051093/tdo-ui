@@ -17,7 +17,6 @@ export const FloatingHeart = () => {
     setHearts((preState) => {
       const id = preState.length + 1;
       const posX = randomX();
-      console.log("🚀 ~ file: FloatingHeart.tsx ~ line 20 ~ setHearts ~ posX", posX)
       return [
         ...preState,
         {
