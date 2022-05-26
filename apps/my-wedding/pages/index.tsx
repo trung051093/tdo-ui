@@ -22,7 +22,7 @@ export function Index() {
         />
         <meta
           property="og:image"
-          content="/_next/image?url=%2Fwedding%2F26-min.jpg&w=800&q=75"
+          content="/wedding/26-min.jpg"
         />
         <meta property="twitter:title" content="Trung & Trâm Wedding" />
         <meta
@@ -31,7 +31,7 @@ export function Index() {
         />
         <meta
           property="twitter:image"
-          content="/_next/image?url=%2Fwedding%2F26-min.jpg&w=800&q=75"
+          content="/wedding/26-min.jpg"
         />
       </Head>
       <Music />
