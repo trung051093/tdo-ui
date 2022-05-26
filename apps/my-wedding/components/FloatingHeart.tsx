@@ -69,7 +69,9 @@ export const FloatingHeart = () => {
   }, [hearts]);
 
   const randomX = () => {
-    return Math.floor(Math.random() * window.innerWidth) + 10;
+    const ratio = window.devicePixelRatio || 1;
+    const width = screen.width * ratio;
+    return Math.floor(Math.random() * width) + 10;
   };
 
   return (
