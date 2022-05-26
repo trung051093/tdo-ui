@@ -10,7 +10,7 @@ export const Home = () => {
     <Flex h="100vh" direction="row" position="relative">
       <Image container={{ w: '100vw', h: '100vh' }} src={bgImg} />
       <ScrollWrapper nextId={MENU.WeddingCard}>
-        <Center width="100vw" pos="absolute" top="40%">
+        <Center width="100%" pos="absolute" top="40%">
           <VStack spacing="4">
             <Heading size="4xl" fontWeight="400">
               Welcome

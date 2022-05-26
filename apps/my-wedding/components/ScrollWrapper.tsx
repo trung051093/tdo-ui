@@ -3,7 +3,7 @@ import { Center, Button } from '@chakra-ui/react';
 import VisibilitySensor from 'react-visibility-sensor';
 import { FiChevronsDown, FiChevronsUp } from 'react-icons/fi';
 import { useScrollSection } from 'react-scroll-section';
-import { animate, stagger } from 'motion';
+import { animate } from 'motion';
 
 interface ScrollWrapperProps {
   nextId?: string;
@@ -58,7 +58,7 @@ export const ScrollWrapper = ({
         {children}
       </VisibilitySensor>
       {showPrevBtn && prevId && (
-        <Center ref={prevRef} width="100vw" pos="absolute" top="5%">
+        <Center ref={prevRef} width="100%" pos="absolute" top="5%">
           <Button
             variant="ghost"
             leftIcon={<FiChevronsUp />}
@@ -69,7 +69,7 @@ export const ScrollWrapper = ({
         </Center>
       )}
       {showNextBtn && nextId && (
-        <Center ref={nextRef} width="100vw" pos="absolute" bottom="10%">
+        <Center ref={nextRef} width="100%" pos="absolute" bottom="10%">
           <Button
             variant="ghost"
             leftIcon={<FiChevronsDown />}

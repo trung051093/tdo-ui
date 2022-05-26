@@ -8,7 +8,7 @@ export const Menu = () => {
   const photoSection = useScrollSection(MENU.Photo);
 
   return (
-    <Center width="100vw" pos="fixed" top="20px" zIndex="1">
+    <Center width="100%" pos="fixed" top="20px" zIndex="1">
       <HStack spacing="4">
         <Button variant="ghost" onClick={homeSection.onClick}>
           <Heading>{MENU.Home}</Heading>
