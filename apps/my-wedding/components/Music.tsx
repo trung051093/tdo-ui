@@ -36,17 +36,14 @@ export const Music = () => {
         src="/audio/silence.mp3"
         allow="autoplay"
         id="audio"
-        style={{ position: 'absolute', zIndex: -9999 }}
+        style={{ display: 'none' }}
       ></iframe>
       <audio
         ref={audioRef}
         id="player"
         autoPlay
         loop
-        style={{
-          position: 'absolute',
-          zIndex: -9999,
-        }}
+        style={{ display: 'none' }}
       >
         <source src="/audio/little-love.mp3" type="audio/mp3" />
       </audio>

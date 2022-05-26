@@ -40,7 +40,7 @@ export const WeddingCard = () => {
         nextId={MENU.Photo}
         nextText={MENU.Photo}
       >
-        <Center w="100%" pos="absolute" top="15%" px={{ base: '10', md: '16' }}>
+        <Center w="100%" pos="absolute" top="12%" px={{ base: '10', md: '16' }}>
           <Flex w="100%" h="100%" direction="column" alignItems="center">
             <Heading fontSize="4xl" fontWeight="normal" marginBottom="4">
               Reception
@@ -53,17 +53,17 @@ export const WeddingCard = () => {
               <Text fontWeight="semibold">Sunday, July 10th, 2022</Text>
             </VStack>
             <VStack marginTop="6">
-              <Text textAlign="center" fontWeight="semibold" fontStyle="italic">
+              <Text textAlign="center" fontWeight="semibold">
                 GALA CENTER
               </Text>
-              <Text fontSize="small" textAlign="center" fontStyle="italic">
+              <Text fontSize="small" textAlign="center">
                 415 Hoang Van Thu Street
               </Text>
-              <Text fontSize="small" textAlign="center" fontStyle="italic">
+              <Text fontSize="small" textAlign="center">
                 Tan Binh District, Ho Chi Minh City
               </Text>
               <Button variant="link" onClick={openMaps} leftIcon={<FiMapPin />}>
-                <Text fontSize="small" fontStyle="italic">
+                <Text fontSize="small">
                   View Maps
                 </Text>
               </Button>

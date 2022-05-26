@@ -26,7 +26,7 @@ export const Home = () => {
               fontWeight="normal"
               fontStyle="italic"
             >
-              In dreams and in love there are no impossibilities.
+              "In dreams and in love there are no impossibilities"
             </Heading>
           </VStack>
         </Center>

@@ -12,7 +12,7 @@ import Head from 'next/head';
 
 export function Index() {
   return (
-    <Container pos="relative" maxW="100%" maxH="100%" p="0">
+    <Container pos="relative" maxW="100%" maxH="100%" p="0" overflow="hidden">
       <Head>
         <title>Trung & Trâm!</title>
         <meta property="og:title" content="Trung & Trâm Wedding" />
@@ -35,8 +35,8 @@ export function Index() {
         />
       </Head>
       <Music />
+      <FloatingHeart />
       <Box pos="relative">
-        <FloatingHeart />
         <Section id={MENU.Home}>
           <Home />
         </Section>
