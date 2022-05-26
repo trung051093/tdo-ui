@@ -1,11 +1,10 @@
-import { Container, Flex } from '@chakra-ui/react';
+import { Container } from '@chakra-ui/react';
 import { MENU } from '@my-wedding/constants';
 import {
   Home,
-  Menu,
   WeddingCard,
   Photo,
-  ThankYou,
+  Music
 } from '@my-wedding/components';
 import { Section } from 'react-scroll-section';
 import Head from 'next/head';
@@ -22,6 +21,7 @@ export function Index() {
         <meta property="twitter:description" content="In dreams and in love there are no impossibilities." />
         <meta property="twitter:image" content="/_next/image?url=%2Fwedding%2F26-min.jpg&w=800&q=75" />
       </Head>
+      <Music />
       <Section id={MENU.Home}>
         <Home />
       </Section>
