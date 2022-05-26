@@ -17,6 +17,7 @@ export const FloatingHeart = () => {
     setHearts((preState) => {
       const id = preState.length + 1;
       const posX = randomX();
+      console.log("🚀 ~ file: FloatingHeart.tsx ~ line 20 ~ setHearts ~ posX", posX)
       return [
         ...preState,
         {
@@ -44,7 +45,7 @@ export const FloatingHeart = () => {
   React.useEffect(() => {
     const interval = setInterval(() => {
       addHeart();
-    }, 200);
+    }, 500);
     return () => {
       setHearts([]);
       clearInterval(interval);
@@ -64,14 +65,16 @@ export const FloatingHeart = () => {
       },
       {
         duration: 15,
+        easing: 'ease-in-out'
       }
     );
   }, [hearts]);
 
   const randomX = () => {
-    const ratio = window.devicePixelRatio || 1;
-    const width = screen.width * ratio;
-    return Math.floor(Math.random() * width) + 10;
+    const min = 10
+    const max = window.innerWidth;
+    return Math.floor(Math.random() * (max - min + 1) + min)
+
   };
 
   return (
