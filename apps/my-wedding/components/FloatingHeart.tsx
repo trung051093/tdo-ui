@@ -9,7 +9,7 @@ type Heart = {
   position: [number, number];
 };
 
-const heartSize = 40;
+const heartSize = 30;
 const heartSizePx = `${heartSize}px`;
 const defaultNumberOfHeart = 50;
 
@@ -17,17 +17,21 @@ const random = (min = 10, max = 100) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
+const generateArrayWithNumber = (num = 0) => Array.from(Array(num).keys());
+
 export const FloatingHeart = () => {
   const [hearts, setHearts] = React.useState<Heart[]>([]);
-  const [positionsX, setPositionX] = React.useState<number[]>([]);
+  const positions = React.useRef<number[]>([]);
 
   const generatePositionX = () => {
-    const index = random(0, positionsX.length);
-    return positionsX[index];
+    const index = random(0, positions.current?.length - 2);
+    const num = positions.current[index];
+    positions.current = positions.current.filter((value) => value !== num);
+    return num;
   };
 
   const getHearts = (numberHearts = defaultNumberOfHeart): Heart[] =>
-    Array.from(Array(numberHearts).keys()).map((n) => ({
+    generateArrayWithNumber(numberHearts).map((n) => ({
       id: 'heart-' + n,
       position: [generatePositionX(), 0],
     }));
@@ -73,16 +77,15 @@ export const FloatingHeart = () => {
   };
 
   React.useEffect(() => {
-    setPositionX(
-      Array.from(Array(document.body.clientWidth).keys()).filter(
-        (n) => n % 5 === 0
-      )
-    );
+    positions.current = generateArrayWithNumber(
+      document.body.clientWidth
+    ).filter((n) => n % 5 === 0);
   }, []);
 
   React.useEffect(() => {
+    if (!positions.current) return;
     setHearts(getHearts(defaultNumberOfHeart));
-  }, [positionsX]);
+  }, [positions]);
 
   React.useEffect(() => {
     if (!hearts.length) return;
