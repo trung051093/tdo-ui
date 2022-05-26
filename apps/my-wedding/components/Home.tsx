@@ -1,4 +1,4 @@
-import { Center, Flex, Heading, Text, VStack, Button } from '@chakra-ui/react';
+import { Center, Flex, Heading, Text, VStack } from '@chakra-ui/react';
 import bgImg from '@my-wedding/assets/images/bg.png';
 import { Image } from './Image';
 import { MENU } from '@my-wedding/constants';

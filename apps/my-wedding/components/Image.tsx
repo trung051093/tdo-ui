@@ -3,7 +3,7 @@ import * as React from 'react';
 import NextImage, { ImageProps } from 'next/image';
 import { useIntersection } from 'react-use';
 
-interface CustomImageProps extends ImageProps {
+export interface CustomImageProps extends ImageProps {
   container?: BoxProps;
   lazy?: boolean;
 }
