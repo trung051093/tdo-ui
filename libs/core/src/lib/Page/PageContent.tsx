@@ -13,7 +13,7 @@ export const PageContent = ({
   ...rest
 }: PageContentProps) => {
   return (
-    <Box ml={{ base: 0, md: 60 }} py="4" px="8" {...rest}>
+    <Box ml={{ base: 0, md: 60 }} px="8" {...rest}>
       <Flex h="10" alignItems="center" my="2" justifyContent="space-between">
         <Box w="50%" h="10">
           {leftAction}

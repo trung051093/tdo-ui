@@ -86,7 +86,7 @@ export const UserTable = () => {
                 page={users?.pagination.page}
                 total={users?.pagination.total}
                 limit={users?.pagination.limit}
-                limitOptions={[100, 500, 1000]}
+                limitOptions={[25, 50, 100]}
                 onChangePage={onChangePage}
                 onChangeLimit={onChangeLimit}
               />

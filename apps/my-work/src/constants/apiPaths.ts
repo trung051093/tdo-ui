@@ -9,5 +9,8 @@ export const ApiPaths = {
         delete: '/api/v1/user/:id',
         update: '/api/v1/user/:id',
         get: '/api/v1/user/:id',
+    },
+    file: {
+        presignedUrl: '/api/v1/file/presign-url'
     }
 }
