@@ -1,4 +1,5 @@
 import React from 'react';
+import noop from 'lodash/noop';
 import { Box, IconButton } from '@chakra-ui/react';
 import { Image } from './UploadButton.model';
 import { FiCamera, FiCheckCircle, FiAlertTriangle } from 'react-icons/fi';
@@ -11,27 +12,31 @@ import {
 
 interface UploadButtonProps {
   id?: string;
-  field: string;
-  presignedUrl: string;
+  field?: string;
   accept?: string;
   headers?: Record<string, string>;
-  onSuccess?: (data: unknown) => void;
-  onError?: (error: unknown) => void;
+  presignedUrl?: string;
+  onUploadProgress?: (n: number) => void;
+  onSelectFile?: (file: File) => void;
+  onSuccess?: (data: any) => void;
+  onError?: (error: any) => void;
 }
 
 export const UploadButton = ({
   id,
   field = DEFAULT_FIELD_NAME,
-  presignedUrl,
   headers = DEFAULT_HEADER,
   accept = DEFAULT_ACCEPT,
-  onSuccess,
-  onError,
+  presignedUrl = '',
+  onUploadProgress = noop,
+  onSuccess = noop,
+  onError = noop,
 }: UploadButtonProps) => {
   const uploader = useUploadImage({
     field,
-    presignedUrl,
     headers,
+    presignedUrl,
+    onUploadProgress,
     onSuccess,
     onError,
   });
