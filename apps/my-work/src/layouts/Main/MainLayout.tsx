@@ -1,24 +1,16 @@
 import React from 'react';
 import { Box, Drawer, DrawerContent, useDisclosure } from '@chakra-ui/react';
 
-import {
-  FiHome,
-  FiTrendingUp,
-  FiCompass,
-  FiStar,
-  FiSettings,
-} from 'react-icons/fi';
+import { FiHome, FiCamera } from 'react-icons/fi';
 import { SidebarContent, LinkItem } from '@tdo-ui/core/lib/Sidebar';
 import { PageContent } from '@tdo-ui/core/lib/Page';
 import { MainHeader } from './MainHeader';
 import { Logo } from '@my-work/components/Logo/Logo';
+import { ROUTES } from '@my-work/constants/routes';
 
 const LinkItems: LinkItem[] = [
-  { name: 'Home', icon: FiHome, href: '#' },
-  { name: 'Trending', icon: FiTrendingUp, href: '#' },
-  { name: 'Explore', icon: FiCompass, href: '#' },
-  { name: 'Favourites', icon: FiStar, href: '#' },
-  { name: 'Settings', icon: FiSettings, href: '#' },
+  { name: 'Users', icon: FiHome, href: ROUTES.Home },
+  { name: 'Photos', icon: FiCamera, href: ROUTES.Photos },
 ];
 
 export interface MainLayoutProps {

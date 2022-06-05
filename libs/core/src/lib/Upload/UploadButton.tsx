@@ -1,22 +1,26 @@
 import React from 'react';
 import noop from 'lodash/noop';
-import { Box, IconButton } from '@chakra-ui/react';
-import { Image } from './UploadButton.model';
+import { Box, Button, HStack, Text } from '@chakra-ui/react';
 import { FiCamera, FiCheckCircle, FiAlertTriangle } from 'react-icons/fi';
 import { useUploadImage } from './UploadButton.hook';
 import {
   DEFAULT_HEADER,
   DEFAULT_ACCEPT,
   DEFAULT_FIELD_NAME,
+  DEFAULT_MULTIPLE,
 } from './constants';
+import { FileUpload } from './UploadButton.model';
 
 interface UploadButtonProps {
   id?: string;
+  label?: string;
   field?: string;
   accept?: string;
   headers?: Record<string, string>;
   presignedUrl?: string;
-  onUploadProgress?: (n: number) => void;
+  multiple?: boolean;
+  onUploadStart?: (file: FileUpload) => void;
+  onUploadProgress?: (file: FileUpload) => void;
   onSelectFile?: (file: File) => void;
   onSuccess?: (data: any) => void;
   onError?: (error: any) => void;
@@ -24,10 +28,13 @@ interface UploadButtonProps {
 
 export const UploadButton = ({
   id,
+  label,
+  multiple = DEFAULT_MULTIPLE,
   field = DEFAULT_FIELD_NAME,
   headers = DEFAULT_HEADER,
   accept = DEFAULT_ACCEPT,
   presignedUrl = '',
+  onUploadStart = noop,
   onUploadProgress = noop,
   onSuccess = noop,
   onError = noop,
@@ -36,6 +43,7 @@ export const UploadButton = ({
     field,
     headers,
     presignedUrl,
+    onUploadStart,
     onUploadProgress,
     onSuccess,
     onError,
@@ -43,8 +51,9 @@ export const UploadButton = ({
   const inputRef = React.createRef<HTMLInputElement>();
 
   const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0] as File;
-    uploader.mutate(file);
+    Array.from(e.target.files || []).forEach((file) => {
+      uploader.mutate(file);
+    });
   };
 
   const handleBtnUploadClick = () => {
@@ -59,16 +68,20 @@ export const UploadButton = ({
           accept={accept}
           id={id}
           type="file"
+          multiple={multiple}
           onChange={handleFileInputChange}
         />
       </Box>
-      <IconButton aria-label="upload-image" onClick={handleBtnUploadClick}>
-        <Box>
-          {uploader.isSuccess && <FiCheckCircle />}
-          {uploader.isError && <FiAlertTriangle />}
-          {(uploader.isLoading || uploader.isIdle) && <FiCamera />}
-        </Box>
-      </IconButton>
+      <Button aria-label="upload-image" onClick={handleBtnUploadClick}>
+        <HStack spacing="2">
+          <Box>
+            {uploader.isSuccess && <FiCheckCircle />}
+            {uploader.isError && <FiAlertTriangle />}
+            {(uploader.isLoading || uploader.isIdle) && <FiCamera />}
+          </Box>
+          {label && <Text>{label}</Text>}
+        </HStack>
+      </Button>
     </Box>
   );
 };
