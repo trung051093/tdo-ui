@@ -14,12 +14,21 @@ export const PhotoList = () => {
 
   return (
     <Stack spacing="4" direction="row">
-      {Object.keys(ctx.photoUpload).map((key) => (
-        <PhotoCard
-          key={key}
-          file={(ctx.photoUpload as any)[key] as FileUpload}
-        />
-      ))}
+      {Object.keys(ctx.photoUpload).map((key) => {
+        const file = (ctx.photoUpload as Record<string, FileUpload>)[key];
+        return (
+          <PhotoCard
+            url={`${file.url}${file.key}`}
+            id={key}
+            key={key}
+            status={file.status}
+            fileName={file.name}
+            fileType={file.type}
+            uploadProgress={file.uploadProgress}
+            error={file.error?.message}
+          />
+        );
+      })}
     </Stack>
   );
 };
