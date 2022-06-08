@@ -7,8 +7,10 @@ import { PhotoManagement } from './pages/photo-management/PhotoManagement';
 import { Register } from './pages/auth/Register';
 import { Login } from './pages/auth/Login';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import { useConnectNotification } from './hooks';
 
 export function App() {
+  useConnectNotification();
   return (
     <Suspense fallback={<PageLoading />}>
       <Routes>
