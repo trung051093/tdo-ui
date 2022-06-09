@@ -5,27 +5,11 @@ import React from 'react';
 export const QUERY_KEYS = {};
 
 export const useNotification = () => {
-  const { connect } = useContainer<ISocketServices>(
-    ServiceTypes.socketServices
-  );
-
-  return {
-    connect,
-  };
+  return {};
 };
 
 export const useConnectNotification = () => {
-  const { connect } = useContainer<ISocketServices>(
-    ServiceTypes.socketServices
-  );
-  const connected = React.useRef(false);
-
-  React.useEffect(() => {
-    if (!connected.current) {
-      connect();
-      connected.current = true;
-    }
-  }, []);
-
+  const { test } = useContainer(ServiceTypes.socketServices);
+  test();
   return {};
 };

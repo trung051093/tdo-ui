@@ -2,9 +2,11 @@
   "compileOnSave": false,
   "compilerOptions": {
     "rootDir": ".",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
-    "strictBindCallApply": true,
+    "strictBindCallApply": false,
     "sourceMap": true,
     "declaration": true,
     "moduleResolution": "node",
@@ -20,7 +22,7 @@
     "skipDefaultLibCheck": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "types": ["reflect-metadata"],
+    "types": ["jest", "node", "reflect-metadata"],
     "baseUrl": ".",
     "paths": {
       "@my-wedding/*": ["apps/my-wedding/*"],

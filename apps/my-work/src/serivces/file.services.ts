@@ -1,6 +1,6 @@
+import { injectable } from 'inversify';
 import { BaseService } from '@tdo-ui/core/services';
 import { ApiPaths } from '@my-work/constants';
-import { injectable } from 'inversify';
 import {
   PresignedUrlRequest,
   PresignedUrlResponse,

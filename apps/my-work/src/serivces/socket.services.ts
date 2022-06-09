@@ -1,25 +1,39 @@
-import { ServiceTypes } from '@my-work/hooks';
-import { BaseService } from '@tdo-ui/core';
-import { inject, injectable } from 'inversify';
+import { injectable, inject } from 'inversify';
 import { io, Socket } from 'socket.io-client';
+import type { IUserServices } from './user.services';
+import { ServiceTypes } from '@my-work/serivces/types';
 
 export interface ISocketServices {
-  connect: () => void;
+  test: () => void;
 }
 
 @injectable()
 export class SocketServices implements ISocketServices {
-  private _socket: Socket | null = null;
+  private _socket: Socket | null;
+  private _wsConnectionString: string;
 
-  constructor() {} // @inject(ServiceTypes.wsConnectionString) wsConnectionString: string
-
-  public connect() {
-    // this._socket = io('http://localhost:8080/socket.io/');
-    // this._socket.on('connect', () => {
-    //   console.log('connect id:', this._socket?.id);
-    // });
-    // this._socket.emit('msg', () => {
-    //   console.log('msg');
-    // });
+  public constructor(
+    @inject(ServiceTypes.wsConnectionString) wsConnectionString: string
+  ) {
+    this._socket = null;
+    this._wsConnectionString = wsConnectionString;
+    this.connect();
   }
+
+  private connect() {
+    this._socket = io(this._wsConnectionString);
+    this._socket.on('connect', () => {
+      console.log('connect id:', this._socket?.id);
+    });
+    this._socket.emit('msg', () => {
+      console.log('msg');
+    });
+  }
+
+  test = () => {
+    console.log(
+      '🚀 ~ file: socket.services.ts ~ line 33 ~ SocketServices ~ test ~ this',
+      this
+    );
+  };
 }

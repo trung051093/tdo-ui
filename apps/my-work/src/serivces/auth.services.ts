@@ -1,7 +1,7 @@
+import { injectable } from 'inversify';
 import { BaseService } from '@tdo-ui/core/services'
 import { ApiPaths } from '@my-work/constants'
 import { LoginRequest, LoginResponse, RegisterRequest, RegisterResponse } from '@my-work/models'
-import { injectable } from "inversify";
 
 export interface IAuthServices {
     login: (params: LoginRequest) => Promise<LoginResponse>
