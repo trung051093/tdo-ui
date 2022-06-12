@@ -11,7 +11,7 @@ type Heart = {
 
 const heartSize = 30;
 const heartSizePx = `${heartSize}px`;
-const defaultNumberOfHeart = 50;
+const defaultNumberOfHeart = 30;
 
 const random = (min = 10, max = 100) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
