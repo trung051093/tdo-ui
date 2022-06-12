@@ -58,20 +58,20 @@ export const WeddingCard = () => {
                   "Please share in our celebration by joining us for dinner reception at five o'clock in the evening on"
                 )}
               </Text>
-              <Text fontWeight="semibold"> {t('Sunday, July 10th, 2022')}</Text>
+              <Text textAlign="center" fontWeight="semibold">
+                {t('Sunday, July 10th, 2022')}
+              </Text>
             </VStack>
             <VStack marginTop="6">
               <Text textAlign="center" fontWeight="semibold">
                 {t('GALA CENTER')}
               </Text>
-              <Text fontSize="small" textAlign="center">
-                {t('415 Hoang Van Thu Street')}
-              </Text>
-              <Text fontSize="small" textAlign="center">
+              <Text textAlign="center">{t('415 Hoang Van Thu Street')}</Text>
+              <Text textAlign="center">
                 {t('Tan Binh District, Ho Chi Minh City')}
               </Text>
               <Button variant="link" onClick={openMaps} leftIcon={<FiMapPin />}>
-                <Text fontSize="small"> {t('View Maps')}</Text>
+                <Text> {t('View Maps')}</Text>
               </Button>
             </VStack>
             <Box marginTop="12">
@@ -80,7 +80,7 @@ export const WeddingCard = () => {
               </Heading>
               <VStack>
                 <Text textAlign="center">
-                  {t('FOR SHARING OUR SPECIAL DAY')}
+                  {t('For sharing our special day')}
                 </Text>
                 <Text textAlign="center"> {t('10 . 07 . 2022')}</Text>
                 <Heading fontSize="sm" fontWeight="normal">
