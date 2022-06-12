@@ -59,6 +59,9 @@ export const WeddingCard = () => {
                 )}
               </Text>
               <Text textAlign="center" fontWeight="semibold">
+                {t("Five o'clock in the evening")}
+              </Text>
+              <Text textAlign="center" fontWeight="semibold">
                 {t('Sunday, July 10th, 2022')}
               </Text>
             </VStack>

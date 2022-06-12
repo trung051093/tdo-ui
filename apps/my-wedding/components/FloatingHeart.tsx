@@ -68,7 +68,7 @@ export const FloatingHeart = () => {
   React.useEffect(() => {
     if (!positions.current) return;
     setHearts(getHearts(defaultNumberOfHeart));
-  }, [positions]);
+  }, [getHearts, positions]);
 
   React.useEffect(() => {
     if (!hearts.length) return;
@@ -92,6 +92,7 @@ export const FloatingHeart = () => {
               zIndex: 1,
             }}
             src={heartImg}
+            alt="heart-flying"
           />
         ))}
       </Box>
