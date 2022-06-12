@@ -12,8 +12,11 @@ import { Image } from './Image';
 import { FiMapPin } from 'react-icons/fi';
 import { ScrollWrapper } from './ScrollWrapper';
 import { MENU } from '@my-wedding/constants';
+import useTranslation from 'next-translate/useTranslation';
 
 export const WeddingCard = () => {
+  const { t } = useTranslation('common');
+
   const openMaps = () => {
     if (
       /* if we're on iOS, open in Apple Maps */
@@ -34,7 +37,11 @@ export const WeddingCard = () => {
 
   return (
     <Flex h="100vh" pos="relative">
-      <Image container={{ w: '100vw', h: '100vh' }} src={bgImg} />
+      <Image
+        container={{ w: '100vw', h: '100vh' }}
+        src={bgImg}
+        alt="background-image"
+      />
       <ScrollWrapper
         prevId={MENU.Home}
         nextId={MENU.Photo}
@@ -43,40 +50,41 @@ export const WeddingCard = () => {
         <Center w="100%" pos="absolute" top="12%" px={{ base: '10', md: '16' }}>
           <Flex w="100%" h="100%" direction="column" alignItems="center">
             <Heading fontSize="4xl" fontWeight="normal" marginBottom="4">
-              Reception
+              {t('Reception')}
             </Heading>
             <VStack spacing="2">
               <Text textAlign="center">
-                Please share in our celebration by joining us for dinner
-                reception at five o'clock in the evening on
+                {t(
+                  "Please share in our celebration by joining us for dinner reception at five o'clock in the evening on"
+                )}
               </Text>
-              <Text fontWeight="semibold">Sunday, July 10th, 2022</Text>
+              <Text fontWeight="semibold"> {t('Sunday, July 10th, 2022')}</Text>
             </VStack>
             <VStack marginTop="6">
               <Text textAlign="center" fontWeight="semibold">
-                GALA CENTER
+                {t('GALA CENTER')}
               </Text>
               <Text fontSize="small" textAlign="center">
-                415 Hoang Van Thu Street
+                {t('415 Hoang Van Thu Street')}
               </Text>
               <Text fontSize="small" textAlign="center">
-                Tan Binh District, Ho Chi Minh City
+                {t('Tan Binh District, Ho Chi Minh City')}
               </Text>
               <Button variant="link" onClick={openMaps} leftIcon={<FiMapPin />}>
-                <Text fontSize="small">
-                  View Maps
-                </Text>
+                <Text fontSize="small"> {t('View Maps')}</Text>
               </Button>
             </VStack>
             <Box marginTop="12">
               <Heading textAlign="center" fontSize="4xl" fontWeight="normal">
-                Thank you
+                {t('Thank you')}
               </Heading>
               <VStack>
-                <Text textAlign="center">FOR SHARING OUR SPECIAL DAY</Text>
-                <Text textAlign="center">10 . 07 . 2022</Text>
+                <Text textAlign="center">
+                  {t('FOR SHARING OUR SPECIAL DAY')}
+                </Text>
+                <Text textAlign="center"> {t('10 . 07 . 2022')}</Text>
                 <Heading fontSize="sm" fontWeight="normal">
-                  TRUNG & TRÂM
+                  {t('TRUNG & TRÂM')}
                 </Heading>
               </VStack>
             </Box>

@@ -1,9 +1,5 @@
 // 1. Import the extendTheme function
-import {
-  extendTheme,
-  theme as base,
-  withDefaultVariant,
-} from '@chakra-ui/react';
+import { extendTheme, theme as base } from '@chakra-ui/react';
 
 // 2. Extend the theme to include custom colors, fonts, etc
 export const theme = extendTheme({
@@ -21,7 +17,7 @@ export const theme = extendTheme({
     },
   },
   fonts: {
-    heading: `'Clicker Script', ${base.fonts?.heading}`,
+    heading: `'Dancing Script', ${base.fonts?.heading}`,
     body: `'Montserrat', ${base.fonts?.body}`,
   },
   components: {

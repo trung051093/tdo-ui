@@ -1,4 +1,4 @@
-import { Box, BoxProps, Image as ChakraImage } from '@chakra-ui/react';
+import { Box, BoxProps } from '@chakra-ui/react';
 import * as React from 'react';
 import NextImage, { ImageProps } from 'next/image';
 import { useIntersection } from 'react-use';
@@ -10,7 +10,15 @@ export interface CustomImageProps extends ImageProps {
 
 // You can add as many loader as you want, and use them conditionally.
 // See https://nextjs.org/docs/basic-features/image-optimization#loader
-export const ImageLoader = ({ src, width, quality }) => {
+export const ImageLoader = ({
+  src,
+  width,
+  quality,
+}: {
+  src: string;
+  width: number;
+  quality: number;
+}) => {
   return `/${src}?w=${width}&q=${quality || 50}`;
 };
 

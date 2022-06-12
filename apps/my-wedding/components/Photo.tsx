@@ -4,6 +4,7 @@ import { useToggle } from 'react-use';
 import Lightbox from 'react-image-lightbox';
 import React from 'react';
 import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
+import useTranslation from 'next-translate/useTranslation';
 
 const images = [
   {
@@ -168,12 +169,13 @@ const images = [
   },
 ];
 
-const getNextImageWithIndex = (index) => {
+const getNextImageWithIndex = (index: number) => {
   const imgName = images[index].src;
   return `/_next/image?url=${encodeURIComponent(imgName)}&w=1080&q=80`;
 };
 
 export const Photo = () => {
+  const { t } = useTranslation('common');
   const [openLightbox, toggleLightbox] = useToggle(false);
   const [photoIndex, setPhotoIndex] = React.useState(0);
 
@@ -209,7 +211,11 @@ export const Photo = () => {
                     toggleLightbox(true);
                   }}
                 >
-                  <Image container={{ w: '100%', h: '100%' }} src={img.src} />
+                  <Image
+                    container={{ w: '100%', h: '100%' }}
+                    src={img.src}
+                    alt="wedding-image"
+                  />
                 </GridItem>
               ))}
           </Grid>
@@ -235,7 +241,7 @@ export const Photo = () => {
         )}
         <Center width="100%" pos="absolute" bottom="9%">
           <Button boxShadow="md" onClick={viewAll}>
-            View all photo
+            {t('View all photo')}
           </Button>
         </Center>
       </Flex>

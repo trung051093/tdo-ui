@@ -2,6 +2,7 @@ import { AppProps } from 'next/app';
 import { ChakraProvider } from '@chakra-ui/react';
 import { ScrollingProvider } from 'react-scroll-section';
 import { theme } from '@my-wedding/themes';
+
 import './styles.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {

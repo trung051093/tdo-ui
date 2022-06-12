@@ -18,7 +18,7 @@
         "assets": ["apps/my-work/src/favicon.ico", "apps/my-work/src/assets"],
         "styles": ["apps/my-work/src/styles.css"],
         "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
+        "webpackConfig": "apps/my-work/custom-webpack.config.js"
       },
       "configurations": {
         "development": {

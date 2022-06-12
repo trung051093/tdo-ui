@@ -1,7 +1,6 @@
 import { injectable, inject } from 'inversify';
-import { io, Socket } from 'socket.io-client';
-import type { IUserServices } from './user.services';
-import { ServiceTypes } from '@my-work/serivces/types';
+import io from 'socket.io-client';
+import { ServiceTypes } from './types';
 
 export interface ISocketServices {
   test: () => void;
@@ -9,7 +8,7 @@ export interface ISocketServices {
 
 @injectable()
 export class SocketServices implements ISocketServices {
-  private _socket: Socket | null;
+  private _socket: SocketIOClient.Socket | null;
   private _wsConnectionString: string;
 
   public constructor(
@@ -21,19 +20,23 @@ export class SocketServices implements ISocketServices {
   }
 
   private connect() {
-    this._socket = io(this._wsConnectionString);
+    this._socket = io(this._wsConnectionString, {
+      transports: ['websocket'],
+    });
+    console.log(
+      '🚀 ~ file: socket.services.ts ~ line 27 ~ SocketServices ~ connect ~ this._socket',
+      this._socket
+    );
     this._socket.on('connect', () => {
       console.log('connect id:', this._socket?.id);
     });
-    this._socket.emit('msg', () => {
-      console.log('msg');
+    this._socket.emit('/');
+    this._socket.emit('/reply', (msg: any) => {
+      console.log('msg', msg);
     });
   }
 
   test = () => {
-    console.log(
-      '🚀 ~ file: socket.services.ts ~ line 33 ~ SocketServices ~ test ~ this',
-      this
-    );
-  };
+    console.log('test function:', this);
+  }
 }

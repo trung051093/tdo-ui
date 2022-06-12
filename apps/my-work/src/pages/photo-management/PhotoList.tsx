@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stack, Grid, GridItem } from '@chakra-ui/react';
+import { Stack } from '@chakra-ui/react';
 import { PhotoManagementContext } from './PhotoManagementContext';
 import { PhotoCard } from './PhotoCard';
 import { isEmpty } from 'lodash';

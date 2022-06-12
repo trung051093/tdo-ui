@@ -42,7 +42,7 @@ export const PhotoCard = ({
     <Box
       pos="relative"
       width="200px"
-      height="250px"
+      height="260px"
       borderRadius="4"
       boxShadow="xs"
       borderColor={error ? 'red.700' : undefined}

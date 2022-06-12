@@ -4,11 +4,17 @@ import { FiVolume2, FiVolumeX } from 'react-icons/fi';
 
 export const Music = () => {
   const [playing, setPlaying] = React.useState<boolean>(false);
-  const audioRef = React.useRef<HTMLAudioElement | null>();
+  const audioRef = React.useRef<HTMLAudioElement | null>(null);
 
   React.useEffect(() => {
+    const handlePlay = async () => {
+      await audioRef.current?.play();
+      if (audioRef.current?.played) {
+        setPlaying(true);
+      }
+    };
     if (audioRef.current) {
-      audioRef.current.play();
+      handlePlay();
     }
   }, []);
 

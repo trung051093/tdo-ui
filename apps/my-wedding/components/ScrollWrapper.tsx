@@ -4,6 +4,7 @@ import VisibilitySensor from 'react-visibility-sensor';
 import { FiChevronsDown, FiChevronsUp } from 'react-icons/fi';
 import { useScrollSection } from 'react-scroll-section';
 import { animate } from 'motion';
+import useTranslation from 'next-translate/useTranslation';
 
 interface ScrollWrapperProps {
   nextId?: string;
@@ -20,12 +21,13 @@ export const ScrollWrapper = ({
   prevText = 'Prev',
   children,
 }: ScrollWrapperProps) => {
+  const { t } = useTranslation('common');
   const [showNextBtn, setShowNextBtn] = React.useState<boolean>(false);
   const [showPrevBtn, setShowPrevBtn] = React.useState<boolean>(false);
-  const nextSection = useScrollSection(nextId);
-  const prevSection = useScrollSection(prevId);
-  const prevRef = React.useRef();
-  const nextRef = React.useRef();
+  const nextSection = useScrollSection(nextId ?? '');
+  const prevSection = useScrollSection(prevId ?? '');
+  const prevRef = React.useRef<HTMLDivElement | null>(null);
+  const nextRef = React.useRef<HTMLDivElement | null>(null);
 
   React.useEffect(() => {
     if (nextRef.current) {
@@ -64,7 +66,7 @@ export const ScrollWrapper = ({
             leftIcon={<FiChevronsUp />}
             onClick={prevSection.onClick}
           >
-            {prevText}
+            {t(prevText)}
           </Button>
         </Center>
       )}
@@ -75,7 +77,7 @@ export const ScrollWrapper = ({
             leftIcon={<FiChevronsDown />}
             onClick={nextSection.onClick}
           >
-            {nextText}
+            {t(nextText)}
           </Button>
         </Center>
       )}

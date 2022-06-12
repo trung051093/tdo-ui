@@ -1,4 +1,3 @@
-import getDecorators from 'inversify-inject-decorators';
 import { Container, decorate, injectable } from 'inversify';
 import { IAuthServices, AuthServices } from './auth.services';
 import { IUserServices, UserServices } from './user.services';
@@ -11,14 +10,15 @@ const container = new Container({ defaultScope: 'Singleton' });
 
 decorate(injectable(), BaseService);
 
-// const { lazyInject } = getDecorators(container);
-
 container.bind<IAuthServices>(ServiceTypes.authServices).to(AuthServices);
 container.bind<IUserServices>(ServiceTypes.userServices).to(UserServices);
 container.bind<IFileServices>(ServiceTypes.fileServices).to(FileServices);
 container
   .bind<string>(ServiceTypes.wsConnectionString)
-  .toConstantValue('http://localhost:8080/socket.io/');
-container.bind<ISocketServices>(ServiceTypes.socketServices).to(SocketServices).inSingletonScope();
+  .toConstantValue(process.env['NX_SOCKET_URL'] as string);
+container
+  .bind<ISocketServices>(ServiceTypes.socketServices)
+  .to(SocketServices)
+  .inSingletonScope();
 
 export { container };
