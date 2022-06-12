@@ -68,7 +68,7 @@ export const FloatingHeart = () => {
   React.useEffect(() => {
     if (!positions.current) return;
     setHearts(getHearts(defaultNumberOfHeart));
-  }, [getHearts, positions]);
+  }, [positions]);
 
   React.useEffect(() => {
     if (!hearts.length) return;
