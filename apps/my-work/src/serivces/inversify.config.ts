@@ -16,9 +16,6 @@ container.bind<IFileServices>(ServiceTypes.fileServices).to(FileServices);
 container
   .bind<string>(ServiceTypes.wsConnectionString)
   .toConstantValue(process.env['NX_SOCKET_URL'] as string);
-container
-  .bind<ISocketServices>(ServiceTypes.socketServices)
-  .to(SocketServices)
-  .inSingletonScope();
+container.bind<ISocketServices>(ServiceTypes.socketServices).to(SocketServices);
 
 export { container };

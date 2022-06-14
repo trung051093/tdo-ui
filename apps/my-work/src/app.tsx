@@ -2,17 +2,17 @@ import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { PageLoading } from './components/Loading';
 import { ROUTES } from './constants/routes';
+import { Notification } from './components/Notification';
 import { UserManagement } from './pages/user-management/UserManagement';
 import { PhotoManagement } from './pages/photo-management/PhotoManagement';
 import { Register } from './pages/auth/Register';
 import { Login } from './pages/auth/Login';
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import { useConnectNotification } from './hooks';
+// import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 export function App() {
-  useConnectNotification();
   return (
     <Suspense fallback={<PageLoading />}>
+      <Notification />
       <Routes>
         <Route path={ROUTES.Home} element={<UserManagement />} />
         <Route path={ROUTES.Photos} element={<PhotoManagement />} />
