@@ -10,8 +10,8 @@ import {
 } from '@my-work/hooks';
 
 const NotificationComponent = () => {
-  const { refetch } = useSearchUser({});
-  const { showMessage } = useConfirmMessage({
+  const { refetch } = useSearchUser({}, { enabled: false });
+  const { show } = useConfirmMessage({
     title: 'Refresh data',
     description: 'New user just added. Do you want refresh table?',
     onConfirm: () => refetch(),
@@ -22,7 +22,7 @@ const NotificationComponent = () => {
     eventName: EVENT.Notification,
     callback: (agrs: Notification) => {
       console.log('notification:', agrs);
-      showMessage();
+      show();
     },
   });
   // eslint-disable-next-line react/jsx-no-useless-fragment

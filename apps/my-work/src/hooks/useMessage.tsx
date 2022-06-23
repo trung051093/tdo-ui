@@ -24,13 +24,18 @@ export const useConfirmMessage = (options: UseConfirmMessageOptions) => {
   const toast = useToast();
   const toastIdRef = React.useRef<ToastId>();
 
-  const closeMessage = () => {
+  const close = () => {
     if (toastIdRef.current) {
       toast.close(toastIdRef.current);
     }
   };
 
-  const showMessage = () => {
+  const onConfirm = () => {
+    options.onConfirm();
+    close();
+  };
+
+  const show = () => {
     toastIdRef.current = toast({
       ...defaultToastOptions,
       status: 'info',
@@ -41,7 +46,7 @@ export const useConfirmMessage = (options: UseConfirmMessageOptions) => {
             <Text>{options.description}</Text>
           </Stack>
           <Stack direction="row" justifyContent="flex-end">
-            <Button size="sm" onClick={closeMessage}>
+            <Button size="sm" onClick={close}>
               Cancel
             </Button>
             <Button
@@ -49,7 +54,7 @@ export const useConfirmMessage = (options: UseConfirmMessageOptions) => {
               colorScheme="yellow"
               onClick={() => {
                 options.onConfirm();
-                closeMessage();
+                close();
               }}
             >
               Ok
@@ -61,7 +66,8 @@ export const useConfirmMessage = (options: UseConfirmMessageOptions) => {
   };
 
   return {
-    showMessage,
-    closeMessage,
+    show,
+    close,
+    onConfirm
   };
 };

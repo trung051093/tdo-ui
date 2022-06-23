@@ -11,9 +11,7 @@ import { App } from './app';
 import { ContainerProvider } from './hooks/useContainer';
 import { container } from './serivces/inversify.config';
 
-bootstrap({
-  baseUrl: '',
-});
+bootstrap();
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

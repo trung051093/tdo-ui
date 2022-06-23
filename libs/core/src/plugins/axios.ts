@@ -4,8 +4,8 @@ type AxiosConfig = {
   baseUrl: string
 }
 
-export const bootstrap = async (config: AxiosConfig) => {
-  Axios.defaults.baseURL = config.baseUrl as string;
+export const bootstrap = async (config?: AxiosConfig) => {
+  Axios.defaults.baseURL = config?.baseUrl as string;
   Axios.interceptors.request.use(
     (config: AxiosRequestConfig) => {
       return config;

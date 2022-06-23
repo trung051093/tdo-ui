@@ -10,6 +10,7 @@ import {
 export type UploadImageOptions = {
   field: string;
   presignedUrl: string;
+  proxyUrl?: string;
   headers?: Record<string, string>;
   getPresignedUrl?: (query?: Record<string, string>) => Promise<string>;
   onUploadStart?: (file: FileUpload) => void;
@@ -21,6 +22,7 @@ export type UploadImageOptions = {
 export const useUploadImage = (options: UploadImageOptions) => {
   const {
     field,
+    proxyUrl,
     presignedUrl,
     headers,
     onSuccess,
@@ -42,6 +44,7 @@ export const useUploadImage = (options: UploadImageOptions) => {
           query: {
             fileType: file.type,
             fileName: file.name,
+            proxy: proxyUrl,
           },
         })
       );

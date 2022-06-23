@@ -1,6 +1,7 @@
 {
-    "/api": {
-        "target": "http://localhost:8080",
-        "secure": false
-    }
+  "/api": {
+    "target": "https://api.tdo.works",
+    "secure": true,
+    "changeOrigin": true
+  }
 }

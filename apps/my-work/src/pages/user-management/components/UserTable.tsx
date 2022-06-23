@@ -9,7 +9,7 @@ import './UserTable.css';
 import { UserCellActions } from './UserCellActions';
 
 export const UserTable = () => {
-  const { data: users, onChangeLimit, onChangePage } = useSearchUser({});
+  const {isLoading, data: users, onChangeLimit, onChangePage } = useSearchUser({});
 
   const columns: ColumnShape<User>[] = [
     {
@@ -64,7 +64,7 @@ export const UserTable = () => {
       title: 'Actions',
       dataKey: 'actions',
       key: 'actions',
-      width: 150,
+      width: 155,
       frozen: Column.FrozenDirection.RIGHT,
       cellRenderer: (data) => <UserCellActions user={data.rowData} />,
     },
@@ -72,6 +72,7 @@ export const UserTable = () => {
 
   return (
     <Box w="100%" h="80vh">
+      
       <AutoResizer>
         {({ width, height }) => (
           <BaseTable
@@ -81,6 +82,7 @@ export const UserTable = () => {
             width={width}
             height={height}
             footerHeight={55}
+            disabled={isLoading}
             footerRenderer={
               <Pagination
                 page={users?.pagination.page}

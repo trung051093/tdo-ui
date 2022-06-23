@@ -17,6 +17,7 @@ interface UploadButtonProps {
   field?: string;
   accept?: string;
   headers?: Record<string, string>;
+  proxyUrl?: string;
   presignedUrl?: string;
   multiple?: boolean;
   onUploadStart?: (file: FileUpload) => void;
@@ -33,6 +34,7 @@ export const UploadButton = ({
   field = DEFAULT_FIELD_NAME,
   headers = DEFAULT_HEADER,
   accept = DEFAULT_ACCEPT,
+  proxyUrl = '',
   presignedUrl = '',
   onUploadStart = noop,
   onUploadProgress = noop,
@@ -43,6 +45,7 @@ export const UploadButton = ({
     field,
     headers,
     presignedUrl,
+    proxyUrl,
     onUploadStart,
     onUploadProgress,
     onSuccess,
