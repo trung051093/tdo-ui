@@ -56,8 +56,7 @@
           "buildTarget": "my-work:build:development"
         },
         "production": {
-          "buildTarget": "my-work:build:production",
-          "hmr": false
+          "buildTarget": "my-work:build:production"
         }
       }
     },

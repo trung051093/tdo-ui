@@ -11,7 +11,9 @@ import { App } from './app';
 import { ContainerProvider } from './hooks/useContainer';
 import { container } from './serivces/inversify.config';
 
-bootstrap();
+bootstrap({
+  baseUrl: process.env['NX_API_URL'] as string
+});
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
