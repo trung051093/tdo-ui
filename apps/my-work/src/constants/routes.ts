@@ -9,6 +9,5 @@ export const ROUTES = {
     SIGNUP: '/auth/sign-up',
     FORGOT_PASSWORD: '/auth/forgot-password',
     RESET_PASSWORD: '/auth/reset-password',
-
   },
 };

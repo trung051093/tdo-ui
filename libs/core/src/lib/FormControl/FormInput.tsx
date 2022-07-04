@@ -10,6 +10,8 @@ import { FieldHookConfig, useField } from 'formik';
 export type FormInputProps = FieldHookConfig<string> & {
   label: string;
   name: string;
+  readOnly?: boolean;
+  hidden?: boolean;
 };
 
 export const FormInput = ({
@@ -17,6 +19,8 @@ export const FormInput = ({
   type,
   label,
   placeholder,
+  readOnly,
+  hidden,
   ...rest
 }: FormInputProps) => {
   const [field, meta] = useField({
@@ -29,7 +33,7 @@ export const FormInput = ({
   return (
     <FormControl isInvalid={isError}>
       <FormLabel htmlFor={id}>{label}</FormLabel>
-      <Input {...field} />
+      <Input {...field} readOnly={readOnly} hidden={hidden} />
       {!isError ? (
         <FormHelperText>{placeholder}</FormHelperText>
       ) : (

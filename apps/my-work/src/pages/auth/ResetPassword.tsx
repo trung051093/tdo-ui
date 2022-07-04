@@ -3,37 +3,48 @@ import {
   Stack,
   Button,
   Heading,
-  Text,
   useColorModeValue,
-  Link,
   Divider,
 } from '@chakra-ui/react';
 import { DefaultLayout } from '@my-work/layouts/Default';
 import { FormikProvider, useFormik } from 'formik';
 import { FormInput, FormPassword } from '@tdo-ui/core/lib/FormControl';
-import { ROUTES } from '@my-work/constants';
 import * as yup from 'yup';
-import { useAuthLogin, useGoogleLogin } from '@my-work/hooks';
-import { FaGoogle } from 'react-icons/fa';
+import { useResetPassword } from '@my-work/hooks';
+import { useLocation } from 'react-router-dom';
+import qs from 'query-string';
+import { useEffect } from 'react';
 
 const validationSchema = yup.object({
   email: yup.string().email('Invalid email address').required('Required'),
   password: yup.string().required('Required'),
+  token: yup.string().required('Required'),
 });
 
-export const Login = () => {
-  const login = useAuthLogin();
-  const { handleGoogleLogin } = useGoogleLogin();
+export const ResetPassword = () => {
+  const location = useLocation();
+  const resetPassword = useResetPassword();
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
+      token: '',
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      login.mutate(values);
+      resetPassword.mutate(values);
     },
   });
+
+  useEffect(() => {
+    const query = qs.parse(location.search);
+    const { token, email } = query;
+    if (token && email) {
+      formik.setFieldValue('token', token);
+      formik.setFieldValue('email', email);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <DefaultLayout>
@@ -41,11 +52,8 @@ export const Login = () => {
         <Stack spacing={8} mx={'auto'} minW={'md'} maxW={'lg'} py={12} px={6}>
           <Stack align={'center'}>
             <Heading fontSize={'4xl'} textAlign={'center'}>
-              Login
+              Reset Password
             </Heading>
-            <Text fontSize="lg" color="gray.600">
-              to enjoy all of our cool features ✌️
-            </Text>
           </Stack>
           <Box
             rounded={'lg'}
@@ -55,7 +63,20 @@ export const Login = () => {
           >
             <form onSubmit={formik.handleSubmit}>
               <Stack spacing={4}>
-                <FormInput id="email" name="email" label="Email" type="email" />
+                <FormInput
+                  hidden
+                  id="token"
+                  name="token"
+                  label=""
+                  type="hidden"
+                />
+                <FormInput
+                  readOnly
+                  id="email"
+                  name="email"
+                  label="Email"
+                  type="hidden"
+                />
                 <FormPassword
                   id="password"
                   name="password"
@@ -73,41 +94,8 @@ export const Login = () => {
                     }}
                     type="submit"
                   >
-                    Sign in
+                    Reset Password
                   </Button>
-                </Stack>
-                <Divider />
-                <Stack spacing={10} pt={2}>
-                  <Button
-                    loadingText="Submitting"
-                    size="lg"
-                    variant="outline"
-                    onClick={handleGoogleLogin}
-                    leftIcon={<FaGoogle />}
-                  >
-                    Sign in with Google
-                  </Button>
-                </Stack>
-                <Stack pt={6}>
-                  <Text align={'center'}>
-                    Don't have account?{' '}
-                    <Link
-                      href={ROUTES.Authentication.REGISTER}
-                      color={'blue.400'}
-                    >
-                      Register
-                    </Link>
-                  </Text>
-                </Stack>
-                <Stack>
-                  <Text align={'center'}>
-                    <Link
-                      href={ROUTES.Authentication.FORGOT_PASSWORD}
-                      color={'blue.400'}
-                    >
-                      Forgot password?
-                    </Link>
-                  </Text>
                 </Stack>
               </Stack>
             </form>

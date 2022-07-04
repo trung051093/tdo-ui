@@ -48,15 +48,16 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "my-work:build",
-        "hmr": true,
-        "proxyConfig": "apps/my-work/proxy.conf.json"
+        "hmr": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "my-work:build:development"
+          "buildTarget": "my-work:build:development",
+          "proxyConfig": "apps/my-work/proxy-dev.conf.json"
         },
         "production": {
-          "buildTarget": "my-work:build:production"
+          "buildTarget": "my-work:build:production",
+          "proxyConfig": "apps/my-work/proxy.conf.json"
         }
       }
     },

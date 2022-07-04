@@ -1,5 +1,10 @@
 import { useMutation, useQueryClient } from 'react-query';
-import { LoginRequest, RegisterRequest } from '@my-work/models';
+import {
+  ForgotPasswordRequest,
+  LoginRequest,
+  RegisterRequest,
+  ResetPasswordRequest,
+} from '@my-work/models';
 import { IAuthServices } from '@my-work/serivces';
 import { useContainer, ServiceTypes } from './useContainer';
 import { useToast } from '@chakra-ui/react';
@@ -19,7 +24,7 @@ export const useGoogleLogin = () => {
   );
   const handleGoogleLogin = () => {
     window.location.href = googleLoginLink({
-      redirect: window.location.origin + ROUTES.Authentication.LOGIN_TOKEN,
+      redirectUri: window.location.origin + ROUTES.Authentication.LOGIN_TOKEN,
     });
   };
 
@@ -128,6 +133,63 @@ export const useAuthRegister = () => {
     onError: ({ message }) => {
       toast({
         title: 'Register failure !',
+        status: 'error',
+        description: message || '',
+        duration: 3000,
+        isClosable: true,
+      });
+    },
+  });
+};
+
+export const useForgotPassword = () => {
+  const { forgotPassword } = useContainer<IAuthServices>(
+    ServiceTypes.authServices
+  );
+  const toast = useToast();
+
+  return useMutation(
+    (params: ForgotPasswordRequest) => {
+      Object.assign(params, {
+        forgotPasswordUri:
+          window.location.origin + ROUTES.Authentication.RESET_PASSWORD,
+      });
+      return forgotPassword(params);
+    },
+    {
+      onError: ({ message }) => {
+        toast({
+          title: 'Forgot password failure !',
+          status: 'error',
+          description: message || '',
+          duration: 3000,
+          isClosable: true,
+        });
+      },
+    }
+  );
+};
+
+export const useResetPassword = () => {
+  const { resetPassword } = useContainer<IAuthServices>(
+    ServiceTypes.authServices
+  );
+  const toast = useToast();
+  const navigate = useNavigate();
+
+  return useMutation((params: ResetPasswordRequest) => resetPassword(params), {
+    onSuccess: () => {
+      navigate(ROUTES.Authentication.LOGIN);
+      toast({
+        title: 'Reset Password Successfully !',
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      });
+    },
+    onError: ({ message }) => {
+      toast({
+        title: 'Reset password failure !',
         status: 'error',
         description: message || '',
         duration: 3000,

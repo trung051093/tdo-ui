@@ -4,6 +4,8 @@ export {
   useAuthLogin,
   useGoogleLogin,
   useAuthLoginToken,
+  useForgotPassword,
+  useResetPassword,
 } from './useAuth';
 export { QUERY_KEYS as USER_QUERY_KEYS, useSearchUser } from './useUser';
 export { QUERY_KEYS as FILE_QUERY_KEYS, usePresignedUrl } from './useFile';
