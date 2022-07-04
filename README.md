@@ -2,7 +2,7 @@
 
 My playground with monorepo Front-end (React) and Back-end (Golang)
 
-Frond-end (React) is using:
+Front-end (React) is using:
 - [Create React App with NX tool](https://nx.dev/react-tutorial/01-create-application): [Nx](https://nx.dev): help manage repo with multi apps and sharing code very well.
 
 - [react-query](https://react-query.tanstack.com/): Fetch, cache and update data in your React.
