@@ -5,11 +5,10 @@ import {
   Heading,
   Text,
   useColorModeValue,
-  Divider,
 } from '@chakra-ui/react';
 import { DefaultLayout } from '@my-work/layouts/Default';
 import { FormikProvider, useFormik } from 'formik';
-import { FormInput, FormPassword } from '@tdo-ui/core/lib/FormControl';
+import { FormInput } from '@tdo-ui/core/lib/FormControl';
 import * as yup from 'yup';
 import { useForgotPassword } from '@my-work/hooks';
 
@@ -37,9 +36,6 @@ export const ForgotPassword = () => {
             <Heading fontSize={'4xl'} textAlign={'center'}>
               Forgot Password
             </Heading>
-            <Text fontSize="lg" color="gray.600">
-              We'll send an email to help you setup new password.
-            </Text>
           </Stack>
           <Box
             rounded={'lg'}
@@ -49,7 +45,8 @@ export const ForgotPassword = () => {
           >
             {forgotPassword.isSuccess ? (
               <Text fontSize="lg" color="gray.600">
-                We just send an email to help you reset your password. Pls help check your mail box !!!
+                We just send an email to help reset your password. Pls help
+                check your mail box !!!
               </Text>
             ) : (
               <form onSubmit={formik.handleSubmit}>
