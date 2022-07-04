@@ -19,3 +19,7 @@ export type RegisterRequest = {
 }
 
 export type RegisterResponse = boolean
+
+export type GoogleLoginRequest = {
+    redirect: string;
+}

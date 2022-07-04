@@ -2,6 +2,7 @@ export const ApiPaths = {
     auth: {
         login: '/api/v1/auth/login',
         register: '/api/v1/auth/register',
+        google: '/api/v1/auth/google/login',
     },
     user: {
         list: '/api/v1/users',

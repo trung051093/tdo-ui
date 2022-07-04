@@ -7,6 +7,8 @@ import { UserManagement } from './pages/user-management/UserManagement';
 import { PhotoManagement } from './pages/photo-management/PhotoManagement';
 import { Register } from './pages/auth/Register';
 import { Login } from './pages/auth/Login';
+import { LoginToken } from './pages/auth/LoginToken';
+
 // import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 export function App() {
@@ -14,6 +16,10 @@ export function App() {
     <Suspense fallback={<PageLoading />}>
       <Notification />
       <Routes>
+        <Route
+          path={ROUTES.Authentication.LOGIN_TOKEN}
+          element={<LoginToken />}
+        />
         <Route path={ROUTES.Home} element={<UserManagement />} />
         <Route path={ROUTES.Photos} element={<PhotoManagement />} />
         <Route path={ROUTES.Authentication.LOGIN} element={<Login />} />

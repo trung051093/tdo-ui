@@ -6,13 +6,15 @@ import {
   Text,
   useColorModeValue,
   Link,
+  Divider,
 } from '@chakra-ui/react';
 import { DefaultLayout } from '@my-work/layouts/Default';
 import { FormikProvider, useFormik } from 'formik';
 import { FormInput, FormPassword } from '@tdo-ui/core/lib/FormControl';
 import { ROUTES } from '@my-work/constants';
 import * as yup from 'yup';
-import { useAuthLogin } from '@my-work/hooks';
+import { useAuthLogin, useGoogleLogin } from '@my-work/hooks';
+import { FaGoogle } from 'react-icons/fa';
 
 const validationSchema = yup.object({
   email: yup.string().email('Invalid email address').required('Required'),
@@ -21,6 +23,7 @@ const validationSchema = yup.object({
 
 export const Login = () => {
   const login = useAuthLogin();
+  const { handleGoogleLogin } = useGoogleLogin();
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -71,6 +74,18 @@ export const Login = () => {
                     type="submit"
                   >
                     Sign in
+                  </Button>
+                </Stack>
+                <Divider />
+                <Stack spacing={10} pt={2}>
+                  <Button
+                    loadingText="Submitting"
+                    size="lg"
+                    variant="outline"
+                    onClick={handleGoogleLogin}
+                    leftIcon={<FaGoogle />}
+                  >
+                    Sign in with Google
                   </Button>
                 </Stack>
                 <Stack pt={6}>

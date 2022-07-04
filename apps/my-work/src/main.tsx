@@ -10,9 +10,13 @@ import { ChakraProvider, theme } from '@chakra-ui/react';
 import { App } from './app';
 import { ContainerProvider } from './hooks/useContainer';
 import { container } from './serivces/inversify.config';
+import { CookieServices } from '@tdo-ui/core';
 
 bootstrap({
-  baseUrl: process.env['NX_API_URL'] as string
+  baseUrl: process.env['NX_API_URL'] as string,
+  custom: (axios) => {
+    axios.defaults.headers.common['Authorization'] = `Bearer ${CookieServices.getAccessToken()}`
+  }
 });
 
 const root = ReactDOM.createRoot(
