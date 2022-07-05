@@ -1,1 +1,4 @@
-export const ProxyUploadUri = window.location.origin + '/upload';
+import { ApiPaths } from './apiPaths';
+
+// https://demo.tdo.works/upload
+export const ProxyUploadUri = ApiPaths.file.upload;
