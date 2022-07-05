@@ -11,18 +11,18 @@ import { App } from './app';
 import { ContainerProvider } from './hooks/useContainer';
 import { container } from './serivces/inversify.config';
 import { CookieServices } from '@tdo-ui/core';
+import { ApiPaths } from './constants';
 
 bootstrap({
-  baseUrl: process.env['NX_API_URL'] as string,
-  custom: (axios) => {
-    axios.defaults.headers.common[
-      'Authorization'
-    ] = `Bearer ${CookieServices.getAccessToken()}`;
-  },
+  baseUrl: '',
   onRequest: (config) => {
+    // minio has another authentication
+    const isUploadRequest = config.url?.includes(ApiPaths.file.upload);
     const accessToken = CookieServices.getAccessToken();
-    if (accessToken) {
+    if (accessToken && !isUploadRequest) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (config as any).headers.common = {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ...(config as any).headers.common,
         Authorization: `Bearer ${accessToken}`,
       };

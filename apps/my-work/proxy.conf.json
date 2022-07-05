@@ -3,5 +3,10 @@
     "target": "https://api.tdo.works",
     "secure": true,
     "changeOrigin": true
+  },
+  "/upload": {
+    "target": "https://api.tdo.works",
+    "secure": true,
+    "changeOrigin": true
   }
 }

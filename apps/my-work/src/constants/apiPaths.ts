@@ -15,5 +15,6 @@ export const ApiPaths = {
   },
   file: {
     presignedUrl: '/api/v1/file/presign-url',
+    upload: '/upload/images',
   },
 };

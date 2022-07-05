@@ -1,6 +1,6 @@
 import { HStack } from '@chakra-ui/react';
 import { UploadButton } from '@tdo-ui/core';
-import { ApiPaths } from '@my-work/constants';
+import { ApiPaths, ProxyUploadUri } from '@my-work/constants';
 import { FileUpload } from '@tdo-ui/core/lib/Upload/UploadButton.model';
 import { PhotoManagementContext } from './PhotoManagementContext';
 import React from 'react';
@@ -30,7 +30,7 @@ export const PhotoActions = () => {
         id="upload-photo"
         label={'Upload'}
         multiple
-        proxyUrl={window.location.origin + '/upload'}
+        proxyUrl={ProxyUploadUri}
         presignedUrl={ApiPaths.file.presignedUrl}
         onUploadStart={onUploadStart}
         onUploadProgress={onUploadProgress}
