@@ -30,6 +30,7 @@ export const PhotoActions = () => {
         id="upload-photo"
         label={'Upload'}
         multiple
+        proxyUrl={window.location.origin + '/upload'}
         presignedUrl={ApiPaths.file.presignedUrl}
         onUploadStart={onUploadStart}
         onUploadProgress={onUploadProgress}

@@ -4,13 +4,12 @@ import {
   Button,
   Heading,
   useColorModeValue,
-  Divider,
 } from '@chakra-ui/react';
 import { DefaultLayout } from '@my-work/layouts/Default';
 import { FormikProvider, useFormik } from 'formik';
 import { FormInput, FormPassword } from '@tdo-ui/core/lib/FormControl';
 import * as yup from 'yup';
-import { useResetPassword } from '@my-work/hooks';
+import { useAuthResetPassword } from '@my-work/hooks';
 import { useLocation } from 'react-router-dom';
 import qs from 'query-string';
 import { useEffect } from 'react';
@@ -23,7 +22,7 @@ const validationSchema = yup.object({
 
 export const ResetPassword = () => {
   const location = useLocation();
-  const resetPassword = useResetPassword();
+  const resetPassword = useAuthResetPassword();
   const formik = useFormik({
     initialValues: {
       email: '',

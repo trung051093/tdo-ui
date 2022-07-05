@@ -142,7 +142,7 @@ export const useAuthRegister = () => {
   });
 };
 
-export const useForgotPassword = () => {
+export const useAuthForgotPassword = () => {
   const { forgotPassword } = useContainer<IAuthServices>(
     ServiceTypes.authServices
   );
@@ -170,7 +170,7 @@ export const useForgotPassword = () => {
   );
 };
 
-export const useResetPassword = () => {
+export const useAuthResetPassword = () => {
   const { resetPassword } = useContainer<IAuthServices>(
     ServiceTypes.authServices
   );

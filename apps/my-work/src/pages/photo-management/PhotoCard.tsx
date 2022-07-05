@@ -1,15 +1,4 @@
-import {
-  Box,
-  BoxProps,
-  Image,
-  Progress,
-  Text,
-  IconButton,
-} from '@chakra-ui/react';
-import {
-  FileUpload,
-  FileUploadStatus,
-} from '@tdo-ui/core/lib/Upload/UploadButton.model';
+import { Box, Image, Progress, Text, IconButton } from '@chakra-ui/react';
 import { FiX } from 'react-icons/fi';
 
 interface PhotoCardProps {
@@ -33,7 +22,6 @@ export const PhotoCard = ({
   error,
   placeholder,
 }: PhotoCardProps) => {
-  
   const onDeleteFile = () => {
     alert('Delete file: ' + fileName);
   };

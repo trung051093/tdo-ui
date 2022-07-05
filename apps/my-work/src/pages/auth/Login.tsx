@@ -44,7 +44,7 @@ export const Login = () => {
               Login
             </Heading>
             <Text fontSize="lg" color="gray.600">
-              to enjoy all of our cool features ✌️
+              to enjoy all of our cool features
             </Text>
           </Stack>
           <Box

@@ -10,14 +10,14 @@ import { DefaultLayout } from '@my-work/layouts/Default';
 import { FormikProvider, useFormik } from 'formik';
 import { FormInput } from '@tdo-ui/core/lib/FormControl';
 import * as yup from 'yup';
-import { useForgotPassword } from '@my-work/hooks';
+import { useAuthForgotPassword } from '@my-work/hooks';
 
 const validationSchema = yup.object({
   email: yup.string().email('Invalid email address').required('Required'),
 });
 
 export const ForgotPassword = () => {
-  const forgotPassword = useForgotPassword();
+  const forgotPassword = useAuthForgotPassword();
   const formik = useFormik({
     initialValues: {
       email: '',

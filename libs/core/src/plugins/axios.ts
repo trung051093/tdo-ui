@@ -1,22 +1,24 @@
-import Axios, {
-  AxiosStatic,
-  AxiosResponse,
-  AxiosError,
-  AxiosRequestConfig,
-} from 'axios';
+import Axios, { AxiosStatic, AxiosError, AxiosRequestConfig } from 'axios';
 
 type AxiosConfig = {
   baseUrl: string;
   custom?: (axios: AxiosStatic) => void;
+  onRequest?: (config: AxiosRequestConfig) => void;
 };
 
-export const bootstrap = async (config?: AxiosConfig) => {
-  Axios.defaults.baseURL = config?.baseUrl as string;
+export const bootstrap = async (options?: AxiosConfig) => {
+  Axios.defaults.baseURL = options?.baseUrl as string;
+  Axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+  Axios.defaults.headers.common['Access-Control-Allow-Methods'] =
+    'DELETE, POST, GET, OPTIONS';
+  Axios.defaults.headers.common['Access-Control-Allow-Headers'] =
+    'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With';
 
-  config?.custom?.(Axios);
+  options?.custom?.(Axios);
 
   Axios.interceptors.request.use(
-    (config: AxiosRequestConfig) => {
+    (config) => {
+      options?.onRequest?.(config);
       return config;
     },
     (error) => {
@@ -25,7 +27,7 @@ export const bootstrap = async (config?: AxiosConfig) => {
   );
 
   Axios.interceptors.response.use(
-    (response: AxiosResponse) => {
+    (response) => {
       if (response.status < 200 || response.status > 299) {
         Promise.reject(response);
       }

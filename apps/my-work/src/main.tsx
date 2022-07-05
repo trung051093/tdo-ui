@@ -15,8 +15,19 @@ import { CookieServices } from '@tdo-ui/core';
 bootstrap({
   baseUrl: process.env['NX_API_URL'] as string,
   custom: (axios) => {
-    axios.defaults.headers.common['Authorization'] = `Bearer ${CookieServices.getAccessToken()}`
-  }
+    axios.defaults.headers.common[
+      'Authorization'
+    ] = `Bearer ${CookieServices.getAccessToken()}`;
+  },
+  onRequest: (config) => {
+    const accessToken = CookieServices.getAccessToken();
+    if (accessToken) {
+      (config as any).headers.common = {
+        ...(config as any).headers.common,
+        Authorization: `Bearer ${accessToken}`,
+      };
+    }
+  },
 });
 
 const root = ReactDOM.createRoot(
