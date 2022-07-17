@@ -4,6 +4,7 @@ import { PageLoading } from './components/Loading';
 import { ROUTES } from './constants/routes';
 import { Notification } from './components/Notification';
 import { UserManagement } from './pages/user-management/UserManagement';
+import { UserEdit } from './pages/user-management/UserEdit';
 import { PhotoManagement } from './pages/photo-management/PhotoManagement';
 import { Register } from './pages/auth/Register';
 import { Login } from './pages/auth/Login';
@@ -23,6 +24,14 @@ export function App() {
           element={
             <PrivateRoute>
               <UserManagement />
+            </PrivateRoute>
+          }
+        />
+         <Route
+          path={ROUTES.Users.Edit}
+          element={
+            <PrivateRoute>
+              <UserEdit />
             </PrivateRoute>
           }
         />

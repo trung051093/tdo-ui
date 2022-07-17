@@ -1,9 +1,11 @@
 import React from 'react'
-import { useQuery, useMutation, QueryObserverOptions } from 'react-query'
+import { useQuery, useMutation, QueryObserverOptions, useQueryClient } from 'react-query'
 import { CreateUserRequest, SearchUserRequest, UpdateUserRequest, UserId } from '@my-work/models'
 import { IUserServices } from '@my-work/serivces'
 import { useContainer, ServiceTypes } from './useContainer'
 import { useToast } from '@chakra-ui/react'
+import { useNavigate } from 'react-router-dom'
+import { ROUTES } from '@my-work/constants'
 
 const DefaultQueryOptions: QueryObserverOptions = {
     staleTime: 0,
@@ -12,7 +14,7 @@ const DefaultQueryOptions: QueryObserverOptions = {
 
 export const QUERY_KEYS = {
     user: (id: UserId) => ['user', id],
-    userList: (params: SearchUserRequest) => ['userList', params.page, params.limit, params.fields]
+    userList: (params?: SearchUserRequest) => ['userList', params?.page, params?.limit]
 }
 
 export const useSearchUser = (params: SearchUserRequest, options?: QueryObserverOptions) => {
@@ -40,6 +42,7 @@ export const useGetUserById = (id: UserId, options?: QueryObserverOptions) => {
 export const useDeleteUser = () => {
     const { deleteUser } = useContainer<IUserServices>(ServiceTypes.userServices)
     const toast = useToast()
+    const queryClient = useQueryClient()
 
     return useMutation((id: UserId) => deleteUser(id), {
         onSuccess: () => {
@@ -49,6 +52,7 @@ export const useDeleteUser = () => {
                 duration: 3000,
                 isClosable: true,
             })
+            queryClient.invalidateQueries(QUERY_KEYS.userList())
         }
     })
 }
@@ -56,6 +60,7 @@ export const useDeleteUser = () => {
 export const useCreateUser = () => {
     const { createUser } = useContainer<IUserServices>(ServiceTypes.userServices)
     const toast = useToast()
+    const navigate = useNavigate();
 
     return useMutation((data: CreateUserRequest) => createUser(data), {
         onSuccess: () => {
@@ -65,6 +70,7 @@ export const useCreateUser = () => {
                 duration: 3000,
                 isClosable: true,
             })
+            navigate(ROUTES.Users.Management)
         }
     })
 }
@@ -72,6 +78,7 @@ export const useCreateUser = () => {
 export const useUpdateUser = () => {
     const { updateUser } = useContainer<IUserServices>(ServiceTypes.userServices)
     const toast = useToast()
+    const navigate = useNavigate();
 
     return useMutation(({ id, data }: {
         id: UserId,
@@ -86,6 +93,7 @@ export const useUpdateUser = () => {
                 duration: 3000,
                 isClosable: true,
             })
+            navigate(ROUTES.Users.Management)
         }
     })
 }

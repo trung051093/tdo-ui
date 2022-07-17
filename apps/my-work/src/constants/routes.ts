@@ -1,7 +1,10 @@
 export const ROUTES = {
   Home: '/',
   Photos: '/photos',
-  Users: '/users',
+  Users: {
+    Management: '/users',
+    Edit: '/user/:userId'
+  },
   Authentication: {
     LOGIN_TOKEN: '/auth/token',
     LOGIN: '/auth/login',

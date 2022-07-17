@@ -12,14 +12,16 @@ import noop from 'lodash/noop';
 
 interface DeleteConfirmDialogProps {
   isOpen: boolean;
-  title: string;
-  description: string;
+  isLoading?: boolean;
+  title?: string;
+  description?: string;
   onClose?: () => void;
   onConfirm?: () => void;
 }
 
 export const DeleteConfirmDialog = ({
   isOpen,
+  isLoading = false,
   title = 'Delete',
   description = "Are you sure? You can't undo this action afterwards.",
   onClose = noop,
@@ -42,10 +44,10 @@ export const DeleteConfirmDialog = ({
           <AlertDialogBody>{description}</AlertDialogBody>
 
           <AlertDialogFooter>
-            <Button ref={cancelRef} onClick={onClose}>
+            <Button isLoading={isLoading} ref={cancelRef} onClick={onClose}>
               Cancel
             </Button>
-            <Button colorScheme="red" onClick={onConfirm} ml={3}>
+            <Button isLoading={isLoading} colorScheme="red" onClick={onConfirm} ml={3}>
               Delete
             </Button>
           </AlertDialogFooter>

@@ -1,18 +1,31 @@
-import { HStack, Button } from '@chakra-ui/react';
+import { HStack, Button, useDisclosure } from '@chakra-ui/react';
+import { DeleteConfirmDialog } from '@my-work/components/Dialog';
+import { ROUTES } from '@my-work/constants';
+import { useDeleteUser } from '@my-work/hooks/useUser';
 import { User } from '@my-work/models';
 import { FiEdit, FiTrash2 } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 
 interface UserCellActionsProps {
   user: User;
 }
 
 export const UserCellActions = ({ user }: UserCellActionsProps) => {
+  const navigate = useNavigate();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const deleteUser = useDeleteUser();
+
   const handleEdit = () => {
-    alert('Edit UserId: ' + user.id);
+    navigate(ROUTES.Users.Edit.replace(':userId', user.id.toString()));
   };
 
   const handleDelete = () => {
-    alert('Delete UserId: ' + user.id);
+    onOpen();
+  };
+
+  const onConfirmDelete = async () => {
+    await deleteUser.mutateAsync(user.id);
+    onClose();
   };
 
   return (
@@ -29,6 +42,13 @@ export const UserCellActions = ({ user }: UserCellActionsProps) => {
       >
         Delete
       </Button>
+      <DeleteConfirmDialog
+        isOpen={isOpen}
+        isLoading={deleteUser.isLoading}
+        title={`Delete User ${user.id}`}
+        onClose={onClose}
+        onConfirm={onConfirmDelete}
+      />
     </HStack>
   );
 };
