@@ -8893,6 +8893,11 @@ js-sha3@0.8.0:
   resolved "https://registry.yarnpkg.com/js-sha3/-/js-sha3-0.8.0.tgz#b9b7a5da73afad7dedd0f8c463954cbde6818840"
   integrity sha512-gF1cRrHhIzNfToc802P800N8PpXS+evLLXfsVpowqmAFR9uwbi89WvXg2QspOmXL8QL86J4T1EpFu+yUkwJY3Q==
 
+js-srp@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/js-srp/-/js-srp-0.0.2.tgz#dfcba7f0077f3f485a26a17906d7b77a213395a1"
+  integrity sha512-emUG0tNbVmyqw1/lVOfnPC/Kc4ko4FRlINQ6QPf7oKc4gS1Dp/aVXjrCnL1a1sqRMWSYsPlFX8GFlGhveFv23A==
+
 js-string-escape@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/js-string-escape/-/js-string-escape-1.0.1.tgz#e2625badbc0d67c7533e9edc1068c587ae4137ef"
@@ -9718,6 +9723,13 @@ node-rsa@^1.1.1:
   integrity sha512-Jd4cvbJMryN21r5HgxQOpMEqv+ooke/korixNNK3mGqfGJmy0M77WDDzo/05969+OkMy3XW1UuZsSmW9KQm7Fw==
   dependencies:
     asn1 "^0.2.4"
+
+node-srp@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/node-srp/-/node-srp-0.0.1.tgz#87d7e4f14eca3111b5cd34ea0299a320ee856b67"
+  integrity sha512-O2MpuBCKkM8RKbmyfnnuXV+7JVxcx73a7iR91aM4Ubs1qJgbW/jbP3/gqUHVi6yZgoZq23vqW6KeB0//5HHcxg==
+  dependencies:
+    underscore "~1.4.4"
 
 normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"
@@ -12590,6 +12602,11 @@ unbox-primitive@^1.0.2:
     has-bigints "^1.0.2"
     has-symbols "^1.0.3"
     which-boxed-primitive "^1.0.2"
+
+underscore@~1.4.4:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.4.4.tgz#61a6a32010622afa07963bf325203cf12239d604"
+  integrity sha512-ZqGrAgaqqZM7LGRzNjLnw5elevWb5M8LEoDMadxIW3OWbcv72wMMgKdwOKpd5Fqxe8choLD8HN3iSj3TUh/giQ==
 
 unherit@^1.0.4:
   version "1.1.3"

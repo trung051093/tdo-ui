@@ -1,3 +1,5 @@
+import { FormikProvider, useFormik } from 'formik';
+import * as yup from 'yup';
 import {
   Box,
   Stack,
@@ -9,28 +11,25 @@ import {
   Divider,
 } from '@chakra-ui/react';
 import { DefaultLayout } from '@my-work/layouts/Default';
-import { FormikProvider, useFormik } from 'formik';
 import { FormInput, FormPassword } from '@tdo-ui/core/lib/FormControl';
 import { ROUTES } from '@my-work/constants';
-import * as yup from 'yup';
-import { useAuthLogin, useGoogleLogin } from '@my-work/hooks';
-import { FaGoogle } from 'react-icons/fa';
+import { useAuthLogin } from '@my-work/hooks/useAuthSrp';
 
 const validationSchema = yup.object({
-  email: yup.string().email('Invalid email address').required('Required'),
+  username: yup.string().email('Invalid email address').required('Required'),
   password: yup.string().required('Required'),
 });
 
 export const Login = () => {
   const login = useAuthLogin();
-  const { handleGoogleLogin } = useGoogleLogin();
   const formik = useFormik({
     initialValues: {
-      email: '',
+      username: '',
       password: '',
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
+      console.log('🚀 ~ file: Login.tsx:35 ~ Login ~ values', values);
       login.mutate(values);
     },
   });
@@ -55,7 +54,12 @@ export const Login = () => {
           >
             <form onSubmit={formik.handleSubmit}>
               <Stack spacing={4}>
-                <FormInput id="email" name="email" label="Email" type="email" />
+                <FormInput
+                  id="username"
+                  name="username"
+                  label="Username"
+                  type="text"
+                />
                 <FormPassword
                   id="password"
                   name="password"
@@ -77,17 +81,6 @@ export const Login = () => {
                   </Button>
                 </Stack>
                 <Divider />
-                <Stack spacing={10} pt={2}>
-                  <Button
-                    loadingText="Submitting"
-                    size="lg"
-                    variant="outline"
-                    onClick={handleGoogleLogin}
-                    leftIcon={<FaGoogle />}
-                  >
-                    Sign in with Google
-                  </Button>
-                </Stack>
                 <Stack pt={6}>
                   <Text align={'center'}>
                     Don't have account?{' '}

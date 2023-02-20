@@ -1,4 +1,11 @@
 export const ApiPaths = {
+  authSrp: {
+    login: '/api/v1/auth/srp/login',
+    loginVerify: '/api/v1/auth/srp/login/verify',
+    loginGetJwt: '/api/v1/auth/srp/login/jwt',
+    register: '/api/v1/auth/srp/register',
+    challenge: '/api/v1/auth/srp/challenge',
+  },
   auth: {
     login: '/api/v1/auth/login',
     register: '/api/v1/auth/register',

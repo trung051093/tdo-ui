@@ -13,7 +13,7 @@ import { FormikProvider, useFormik } from 'formik';
 import { FormInput, FormPassword } from '@tdo-ui/core/lib/FormControl';
 import { ROUTES } from '@my-work/constants';
 import * as yup from 'yup';
-import { useAuthRegister } from '@my-work/hooks/useAuth';
+import { useAuthRegister } from '@my-work/hooks/useAuthSrp';
 
 const validationSchema = yup.object({
   firstName: yup
@@ -24,7 +24,7 @@ const validationSchema = yup.object({
     .string()
     .max(20, 'Must be 20 characters or less')
     .required('Required'),
-  email: yup.string().email('Invalid email address').required('Required'),
+  username: yup.string().email('Invalid email address').required('Required'),
   password: yup.string().required('Required'),
 });
 
@@ -34,8 +34,12 @@ export const Register = () => {
     initialValues: {
       firstName: '',
       lastName: '',
-      email: '',
+      username: '',
       password: '',
+      code: '',
+      role: 'patient',
+      session: '',
+      salt: ''
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -81,13 +85,26 @@ export const Register = () => {
                     />
                   </Box>
                 </HStack>
-                <FormInput id="email" name="email" label="Email" type="email" />
+                <FormInput
+                  id="username"
+                  name="username"
+                  label="Username"
+                  type="text"
+                />
                 <FormPassword
                   id="password"
                   name="password"
                   label="Password"
                   type="text"
                 />
+                <FormInput id="salt" name="salt" label="Salt" type="text" />
+                <FormInput
+                  id="session"
+                  name="session"
+                  label="Session"
+                  type="text"
+                />
+                <FormInput id="code" name="code" label="Code" type="text" />
                 <Stack spacing={10} pt={2}>
                   <Button
                     loadingText="Submitting"
