@@ -1,8 +1,0 @@
-.BaseTable__footer {
-  overflow: unset;
-}
-
-.BaseTable {
-  border-radius: var(--chakra-radii-md);
-  overflow: hidden;
-}

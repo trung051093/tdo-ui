@@ -2,34 +2,19 @@
   "compileOnSave": false,
   "compilerOptions": {
     "rootDir": ".",
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "strictBindCallApply": false,
     "sourceMap": true,
-    "declaration": true,
+    "declaration": false,
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "esModuleInterop": true,
     "importHelpers": true,
-    "target": "esnext",
+    "target": "es2015",
     "module": "esnext",
-    "lib": ["dom", "dom.Iterable", "esnext"],
+    "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "types": ["jest", "node", "reflect-metadata"],
     "baseUrl": ".",
-    "paths": {
-      "@my-wedding/*": ["apps/my-wedding/*"],
-      "@my-work/*": ["apps/my-work/src/*"],
-      "@tdo-ui/core": ["libs/core/src/index.ts"],
-      "@tdo-ui/core/*": ["libs/core/src/*"]
-    }
+    "paths": {}
   },
   "exclude": ["node_modules", "tmp"]
 }
